@@ -10,7 +10,7 @@ const albertSans = Albert_Sans({
 
 export const metadata: Metadata = {
   title: "Jurix: Redefining legal access.",
-  description: "We Connect Clients and Lawyers the Smarter Way.",
+  description: "Making legal access easier, faster, and more human.",
   icons: {
     icon: '/favicon.ico.ico',
   },
