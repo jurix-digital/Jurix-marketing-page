@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Jurix: Redefining Legal Solutions.",
   description: "Connecting Clients and Lawyers the Smarter Way.",
   icons: {
-    icon: '/favicon.ico',
+    icon: '/favicon1.ico',
   },
 };
 
