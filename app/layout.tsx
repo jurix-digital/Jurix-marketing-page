@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     // absolute url is important for social scrapers
     images: [
       {
-        url: "https://www.jurix.law/favicon1.svg",
+        url: "https://www.jurix.law/Favicon.jpg",
         width: 1200,
         height: 630,
         alt: "Jurix — Connecting Clients & Lawyers",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Jurix: Redefining Legal Solutions.",
     description: "Connecting Clients and Lawyers the Smarter Way.",
-    images: ["https://www.jurix.law/favicon1.svg"],
+    images: ["https://www.jurix.law/Favicon.jpg"],
   },
 
   // Optional: theme color (useful for some platforms / browsers)
