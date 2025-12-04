@@ -87,7 +87,7 @@ export default function Home() {
               <p className={`${albertSans.className} text-[12px] md:text-[14px] tracking-[0] text-[#927A61] mb-0`}>
                 Phone number
               </p>
-              <p className={`${albertSans.className} text-[16px] md:text-[18px] text-[#282828]`}>+91 6304 840 925</p>
+              <p className={`${albertSans.className} text-[16px] md:text-[18px] text-[#282828]`}>+91 81 4444 6464</p>
             </div>
           </div>
 
