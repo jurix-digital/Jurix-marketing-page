@@ -110,7 +110,10 @@ export default function Home() {
                       Tatvamasi Nilayam,
                       KPHB 9th Phase Road,
                       KPHB Colony,
-                      Hyderabad
+                      Hyderabad,
+                      Medchal Malkajgiri,
+                      Telangana,
+                      500072
                     </p>
                   </div>
                 </div>
