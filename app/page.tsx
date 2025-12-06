@@ -101,8 +101,8 @@ export default function Home() {
                       height={24}
                     />
                   </div>
-                  <div>
-                    <p className={`${albertSans.className} text-[12px] md:text-[14px] tracking-[0] text-[#927A61] mb-0 w-[60%]`}>
+                  <div className='w-[60%]'>
+                    <p className={`${albertSans.className} text-[12px] md:text-[14px] tracking-[0] text-[#927A61] mb-0`}>
                       Office Address
                     </p>
                     <p className={`${albertSans.className} text-[16px] md:text-[18px] text-[#282828]`}>
