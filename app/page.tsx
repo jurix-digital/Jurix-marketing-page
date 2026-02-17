@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link'; // Added Link import
 import { Albert_Sans } from 'next/font/google';
 import ContactForm from '@/components/ContactForm';
-import { motion } from 'framer-motion';
+import { motion, easeOut } from 'framer-motion';
 
 const albertSans = Albert_Sans({
   subsets: ['latin'],
@@ -17,7 +17,7 @@ const fadeInUp = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: "easeOut" } 
+    transition: { duration: 0.6, ease: easeOut } 
   },
 };
 
@@ -36,7 +36,7 @@ const slideInRight = {
   visible: { 
     opacity: 1, 
     x: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
+    transition: { duration: 0.8, ease: easeOut } 
   },
 };
 
