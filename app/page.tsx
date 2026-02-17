@@ -1,6 +1,7 @@
 'use client'; // Required for Framer Motion
 
 import Image from 'next/image';
+import Link from 'next/link'; // Added Link import
 import { Albert_Sans } from 'next/font/google';
 import ContactForm from '@/components/ContactForm';
 import { motion } from 'framer-motion';
@@ -16,7 +17,7 @@ const fadeInUp = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: "easeOut" as const } 
+    transition: { duration: 0.6, ease: "easeOut" } 
   },
 };
 
@@ -35,7 +36,7 @@ const slideInRight = {
   visible: { 
     opacity: 1, 
     x: 0, 
-    transition: { duration: 0.8, ease: "easeOut" as const } 
+    transition: { duration: 0.8, ease: "easeOut" } 
   },
 };
 
@@ -189,12 +190,23 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="max-w-6xl mx-auto text-left lg:text-center"
+          className="max-w-6xl mx-auto"
         >
           <div className="flex flex-col lg:flex-row items-start lg:items-center lg:justify-center gap-3 mb-4 border-b border-[#323435] pb-4">
             <Image src="/jurix-logo.svg" alt="Jurix Logo" width={280} height={105} className="w-auto h-auto max-w-[200px] lg:max-w-[280px]" />
           </div>
-          <p className={`${albertSans.className} text-[#E6DDCC] text-[14px] text-left lg:text-center`}>© 2025 Jurix. All Right Reserved</p>
+          {/* Updated Footer Inner */}
+          <div className="flex flex-col md:flex-row justify-between items-center w-full gap-4 md:gap-0">
+            <Link 
+              href="/privacy-policy" 
+              className={`${albertSans.className} text-[#E6DDCC] text-[14px] hover:text-white transition-colors`}
+            >
+              Privacy Policy
+            </Link>
+            <span className={`${albertSans.className} text-[#E6DDCC] text-[14px]`}> 
+              © 2026 Jurix. All Rights Reserved.
+            </span>
+          </div>
         </motion.div>
       </footer>
     </main>

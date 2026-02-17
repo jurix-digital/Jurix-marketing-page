@@ -182,7 +182,7 @@ export default function ContactForm() {
           onClick={() => setAgreed(a => !a)}
         >
           I agree to the{' '}
-          <a href="#" className="underline">
+          <a href="/privacy-policy" className="underline">
             Terms and Privacy Policy
           </a>
         </label>
