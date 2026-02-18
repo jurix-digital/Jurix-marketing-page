@@ -164,21 +164,32 @@ return (
             Once no longer required, data is securely deleted or anonymized.
         </p>
 
-        <h2 className="section-heading">User Rights</h2>
-        <p>
-            Subject to applicable law, you may have the right to:
-        </p>
-        <ul>
-            <li>Access your personal data</li>
-            <li>Request correction of inaccurate information</li>
-            <li>Request deletion of personal data</li>
-            <li>Withdraw consent</li>
-            <li>Grievance redressal</li>
-        </ul>
-        <p>
-            Requests may be submitted to the contact details below.
-        </p>
+    <h2 className="section-heading">User Rights</h2>
+<p>
+    Subject to applicable law, you may have the right to:
+</p>
+<ul>
+    <li>Access your personal data</li>
+    <li>Request correction of inaccurate information</li>
+    <li>Request deletion of personal data</li>
+    <li>Withdraw consent</li>
+    <li>Grievance redressal</li>
+</ul>
 
+<p>
+    Requests may be submitted to the contact details below.
+</p>
+
+<p>
+    For information on how to delete your Jurix account and associated personal data,
+    please{" "}
+    <a 
+        href="/delete-account" 
+        style={{ textDecoration: "underline", fontWeight: 600 }}
+    >
+        click here
+    </a>.
+</p>
         <h2 className="section-heading">Cookies and Tracking</h2>
         <p>
             Jurix may use cookies and similar technologies to:
