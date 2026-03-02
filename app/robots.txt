@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /login/
+Disallow: /dashboard/
+
+# Sitemap location
+Sitemap: https://www.jurix.law/sitemap.xml
