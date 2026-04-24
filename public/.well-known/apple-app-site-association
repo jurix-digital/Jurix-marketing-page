@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "WUS2GLSW77.com.jurix.jurixConsumer",
+          "WUS2GLSW77.com.jurix.jurixStaff"
+        ],
+        "paths": ["/kyc*"],
+        "components": [
+          { "/": "/kyc*" }
+        ]
+      }
+    ]
+  }
+}
