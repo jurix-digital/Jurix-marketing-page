@@ -8,7 +8,7 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: 'jurix-marketing-page'
-  AZURE_WEBAPP_PACKAGE_PATH: '.' 
+  AZURE_WEBAPP_PACKAGE_PATH: '.'
   NODE_VERSION: '20.x'
   AZURE_WEBAPP_RESOURCE_GROUP: 'jurix-resources'
 
@@ -34,9 +34,13 @@ jobs:
         env:
           NODE_ENV: production
 
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
