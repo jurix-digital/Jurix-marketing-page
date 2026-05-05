@@ -15,8 +15,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  // Azure App Service friendly settings
-  output: 'standalone',
 };
 
 export default nextConfig;
