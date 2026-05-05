@@ -15,7 +15,8 @@ export default function KYCPage({ params, searchParams }: {
     if (typeof window !== 'undefined') {
       const url = new URL(window.location.href);
       if (token) url.searchParams.set('token', token);
-      url.searchParams.set('profileId', profileId);
+      // Remove profileId from query params since it's in the path
+      url.searchParams.delete('profileId');
       window.history.replaceState({}, '', url.toString());
     }
   }, [token, profileId]);
