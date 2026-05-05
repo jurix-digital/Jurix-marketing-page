@@ -94,6 +94,10 @@ Alternatively, use the manual workflow:
 
 ## Troubleshooting
 
+**Deployment failed with invalid publish profile:**
+- Ensure the GitHub secret `AZURE_WEBAPP_PUBLISH_PROFILE` contains only the `<publishProfile>` element, not the `<publishData>` wrapper
+- Use the Web Deploy profile (MSDeploy) for the action
+
 **Build fails:**
 - Check GitHub Actions logs for errors
 - Ensure Node.js version matches (20.x)
