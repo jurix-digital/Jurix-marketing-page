@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     // Remove token from body as it should be in query param
     formData.delete('token');
     
-    const response = await fetch(`${backendUrl}/kyc/submit?token=${token}`, {
+    const response = await fetch(`${backendUrl}/v1/kyc/submit?token=${token}`, {
       method: 'POST',
       body: formData,
     });
