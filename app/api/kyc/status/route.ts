@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
       headers['Authorization'] = authHeader;
     }
     
-    const response = await fetch(`${backendUrl}/kyc/status`, {
+    const response = await fetch(`${backendUrl}/v1/kyc/status`, {
       method: 'GET',
       headers,
     });

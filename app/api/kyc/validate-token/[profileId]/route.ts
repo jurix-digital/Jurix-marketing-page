@@ -19,7 +19,7 @@ export async function GET(
 
     const backendUrl = process.env.BACKEND_API_URL || 'http://localhost:3001';
     
-    const response = await fetch(`${backendUrl}/kyc/validate-token/${profileId}?token=${token}`, {
+    const response = await fetch(`${backendUrl}/v1/kyc/validate-token/${profileId}?token=${token}`, {
       method: 'GET',
     });
 

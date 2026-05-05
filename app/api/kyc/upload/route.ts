@@ -5,7 +5,7 @@ export async function POST(request: Request) {
     const formData = await request.formData();
     const backendUrl = process.env.BACKEND_API_URL || 'http://localhost:3001';
     
-    const response = await fetch(`${backendUrl}/kyc/upload`, {
+    const response = await fetch(`${backendUrl}/v1/kyc/upload`, {
       method: 'POST',
       body: formData,
     });
