@@ -10,7 +10,7 @@ RESOURCE_GROUP="jurix-resources"
 APP_SERVICE_PLAN="jurix-plan"
 APP_SERVICE_NAME="jurix-marketing-page"
 REGION="southindia"
-RUNTIME="NODE|20-lts"
+RUNTIME="NODE:22-lts"
 SKU="S1"
 
 echo "🔧 Starting Azure deployment for Jurix Marketing Page..."
