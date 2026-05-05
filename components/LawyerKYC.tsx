@@ -692,21 +692,12 @@ export default function LawyerKYC() {
               </div>
               
               <h2 className={`${albertSans.className} text-xl md:text-2xl font-semibold text-[#2D3136] mb-2`}>
-                Thank you! Your KYC has been submitted
+                KYC Completed
               </h2>
               
               <div className="bg-[#F5F0E6] p-4 md:p-6 rounded-lg w-full max-w-md mb-4 md:mb-6">
                 <p className="text-gray-700 text-sm md:text-base">
-                  Your KYC has been successfully submitted. Our team will review your documents to complete the verification process.
-                </p>
-              </div>
-              
-              <div className="w-full max-w-md mb-4 md:mb-6">
-                <h3 className={`${albertSans.className} font-semibold text-[#2D3136] mb-2 text-sm md:text-base`}>
-                  Important Note
-                </h3>
-                <p className="text-gray-600 text-sm md:text-base">
-                  Verification typically takes 2-3 business days. You will receive a notification once your account is approved.
+                  The Jurix team will get in touch soon.
                 </p>
               </div>
               
