@@ -28,6 +28,21 @@ interface FormData {
   agreeToTerms: boolean;
   agreeToCodeOfConduct: boolean;
   selfDeclarationForm: File | null;
+  // Personal Information
+  name: string;
+  email: string;
+  phone: string;
+  designation: string;
+  city: string;
+  barCouncilNumber: string;
+  referredBy: string;
+}
+
+interface UploadedDocument {
+  label: string;
+  fileName: string;
+  fileUrl: string;
+  docType: string;
 }
 
 interface FileUploadBoxProps {
@@ -147,6 +162,13 @@ export default function LawyerKYC() {
     agreeToTerms: false,
     agreeToCodeOfConduct: false,
     selfDeclarationForm: null,
+    name: '',
+    email: '',
+    phone: '',
+    designation: '',
+    city: '',
+    barCouncilNumber: '',
+    referredBy: '',
   });
 
   // Check for token and profileId in URL on mount
@@ -184,33 +206,90 @@ export default function LawyerKYC() {
     }
   };
 
+  const uploadDocument = async (file: File, docType: string): Promise<UploadedDocument> => {
+    const uploadFormData = new FormData();
+    uploadFormData.append('file', file);
+    uploadFormData.append('docType', docType);
+    uploadFormData.append('profileId', profileId);
+    uploadFormData.append('token', token);
+
+    const res = await fetch('/api/kyc/upload', {
+      method: 'POST',
+      body: uploadFormData,
+    });
+
+    if (!res.ok) {
+      throw new Error(`Failed to upload ${docType}`);
+    }
+
+    const data = await res.json();
+    return {
+      label: docType,
+      fileName: file.name,
+      fileUrl: data.fileUrl || data.url,
+      docType,
+    };
+  };
+
   const handleSubmitKYC = async () => {
     setMessage(null);
     setLoading(true);
 
     try {
+      // Validate required fields
+      if (!formData.name || !formData.email || !formData.phone || !formData.designation || !formData.city) {
+        throw new Error('Please fill in all required fields');
+      }
+
+      if (!token || !profileId) {
+        throw new Error('Missing token or profileId');
+      }
+
+      // Upload documents individually
+      const documents: UploadedDocument[] = [];
+      
+      const documentMap: { [key: string]: File | null } = {
+        aadhar: formData.aadharCard,
+        pan: formData.panCard,
+        address_proof: formData.addressProof,
+        passport_photo: formData.passportPhoto,
+        signature: formData.signature,
+        bar_council_id: formData.barCouncilId,
+        experience_certificate: formData.experienceCertificate,
+        certificate_of_practice: formData.certificateOfPractice,
+        self_declaration: formData.selfDeclarationForm,
+      };
+
+      for (const [docType, file] of Object.entries(documentMap)) {
+        if (file) {
+          const uploadedDoc = await uploadDocument(file, docType);
+          documents.push(uploadedDoc);
+        }
+      }
+
+      // Submit KYC with all required fields
+      const submitPayload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        designation: formData.designation,
+        city: formData.city,
+        barCouncilNumber: formData.barCouncilNumber,
+        referredBy: formData.referredBy,
+        profileId,
+        documents,
+        verification: {
+          requestId: '',
+          status: 'pending',
+          docType: 'kyc',
+          extractedData: {},
+        },
+      };
+
       const submitFormData = new FormData();
-      
-      // Add documents
-      if (formData.aadharCard) submitFormData.append('aadharCard', formData.aadharCard);
-      if (formData.panCard) submitFormData.append('panCard', formData.panCard);
-      if (formData.addressProof) submitFormData.append('addressProof', formData.addressProof);
-      if (formData.passportPhoto) submitFormData.append('passportPhoto', formData.passportPhoto);
-      if (formData.signature) submitFormData.append('signature', formData.signature);
-      if (formData.barCouncilId) submitFormData.append('barCouncilId', formData.barCouncilId);
-      if (formData.experienceCertificate) submitFormData.append('experienceCertificate', formData.experienceCertificate);
-      if (formData.certificateOfPractice) submitFormData.append('certificateOfPractice', formData.certificateOfPractice);
-      if (formData.selfDeclarationForm) submitFormData.append('selfDeclarationForm', formData.selfDeclarationForm);
-      
-      // Add declarations
-      submitFormData.append('confirmGenuine', formData.confirmGenuine.toString());
-      submitFormData.append('isRegisteredAdvocate', formData.isRegisteredAdvocate.toString());
-      submitFormData.append('agreeToTerms', formData.agreeToTerms.toString());
-      submitFormData.append('agreeToCodeOfConduct', formData.agreeToCodeOfConduct.toString());
-      
-      // Add token and profileId if available
-      if (token) submitFormData.append('token', token);
-      if (profileId) submitFormData.append('profileId', profileId);
+      submitFormData.append('data', JSON.stringify(submitPayload));
+      submitFormData.append('token', token);
+      submitFormData.append('profileId', profileId);
 
       const res = await fetch('/api/kyc/submit', {
         method: 'POST',
@@ -260,6 +339,81 @@ export default function LawyerKYC() {
           {currentStep === 'personal' && (
             <div className="space-y-4 md:space-y-6">
               <h2 className={`${albertSans.className} text-lg md:text-xl font-semibold text-[#2D3136] mb-4`}>
+                Personal Information
+              </h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">Full Name *</label>
+                  <input
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">Email *</label>
+                  <input
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">Phone Number *</label>
+                  <input
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">Designation *</label>
+                  <input
+                    type="text"
+                    value={formData.designation}
+                    onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">City *</label>
+                  <input
+                    type="text"
+                    value={formData.city}
+                    onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">Bar Council Number</label>
+                  <input
+                    type="text"
+                    value={formData.barCouncilNumber}
+                    onChange={(e) => setFormData({ ...formData, barCouncilNumber: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+                <div className="space-y-2 md:col-span-2">
+                  <label className="text-sm font-medium text-gray-700">Referred By (Optional)</label>
+                  <input
+                    type="text"
+                    value={formData.referredBy}
+                    onChange={(e) => setFormData({ ...formData, referredBy: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+              </div>
+
+              <h2 className={`${albertSans.className} text-lg md:text-xl font-semibold text-[#2D3136] mb-4 mt-6`}>
                 Personal Verification
               </h2>
               

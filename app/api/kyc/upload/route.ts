@@ -3,9 +3,13 @@ import { NextResponse } from 'next/server';
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
+    const token = formData.get('token') as string;
     const backendUrl = process.env.BACKEND_API_URL || 'http://localhost:3001';
     
-    const response = await fetch(`${backendUrl}/v1/kyc/upload`, {
+    // Remove token from body as it should be in query param
+    formData.delete('token');
+    
+    const response = await fetch(`${backendUrl}/kyc/upload?token=${token}`, {
       method: 'POST',
       body: formData,
     });

@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import LawyerKYC from '@/components/LawyerKYC';
 
 export default function KYCPage({ params, searchParams }: {
   params: { profileId: string };
@@ -10,16 +9,15 @@ export default function KYCPage({ params, searchParams }: {
   const { profileId } = params;
   const { token } = searchParams;
 
-  // Set URL parameters so LawyerKYC component can read them
+  // Redirect to lawyer-kyc page with token and profileId in query params
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const url = new URL(window.location.href);
-      if (token) url.searchParams.set('token', token);
-      // Remove profileId from query params since it's in the path
-      url.searchParams.delete('profileId');
-      window.history.replaceState({}, '', url.toString());
+      const redirectUrl = token 
+        ? `/lawyer-kyc?token=${token}&profileId=${profileId}`
+        : `/lawyer-kyc?profileId=${profileId}`;
+      window.location.href = redirectUrl;
     }
   }, [token, profileId]);
 
-  return <LawyerKYC />;
+  return null;
 }
