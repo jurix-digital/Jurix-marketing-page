@@ -3,14 +3,12 @@
     "apps": [],
     "details": [
       {
-        "appIDs": [
-          "WUS2GLSW77.com.jurix.jurixConsumer",
-          "WUS2GLSW77.com.jurix.jurixStaff"
-        ],
-        "paths": ["/kyc*"],
-        "components": [
-          { "/": "/kyc*" }
-        ]
+        "appID": "WUS2GLSW77.com.jurix.jurixConsumer",
+        "paths": ["/kyc/*", "/kyc"]
+      },
+      {
+        "appID": "WUS2GLSW77.com.jurix.jurixStaff",
+        "paths": ["/kyc/*", "/kyc"]
       }
     ]
   }
