@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // AASA file for iOS Universal Links
         source: '/.well-known/apple-app-site-association',
         headers: [
           {
