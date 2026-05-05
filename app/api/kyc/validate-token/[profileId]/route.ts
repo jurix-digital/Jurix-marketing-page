@@ -3,10 +3,10 @@ import { NextRequest } from 'next/server';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { profileId: string } }
+  { params }: { params: Promise<{ profileId: string }> }
 ) {
   try {
-    const { profileId } = params;
+    const { profileId } = await params;
     const searchParams = request.nextUrl.searchParams;
     const token = searchParams.get('token');
     
