@@ -179,6 +179,14 @@ export default function LawyerKYC() {
       const urlProfileId = urlParams.get('profileId');
       if (urlToken) setToken(urlToken);
       if (urlProfileId) setProfileId(urlProfileId);
+      
+      // Show error if parameters are missing
+      if (!urlToken || !urlProfileId) {
+        setMessage({ 
+          type: 'error', 
+          text: 'Invalid KYC link. Please use the link sent to you with token and profileId.' 
+        });
+      }
     }
   }, []);
 
