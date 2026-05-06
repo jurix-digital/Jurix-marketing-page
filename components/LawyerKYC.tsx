@@ -153,6 +153,9 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   const [token, setToken] = useState(initialToken || '');
   const [profileId, setProfileId] = useState(initialProfileId || '');
+
+  console.log('LawyerKYC Props:', { initialToken, initialProfileId });
+  console.log('LawyerKYC State:', { token, profileId });
   const [formData, setFormData] = useState<FormData>({
     aadharCard: null,
     panCard: null,
