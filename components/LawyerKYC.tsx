@@ -265,7 +265,7 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
       const documents: UploadedDocument[] = [];
       
       const documentMap: { [key: string]: File | null } = {
-        aadhar: formData.aadharCard,
+        aadhaar: formData.aadharCard,
         pan: formData.panCard,
         address_proof: formData.addressProof,
         passport_photo: formData.passportPhoto,
@@ -273,7 +273,7 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
         bar_council_id: formData.barCouncilId,
         experience_certificate: formData.experienceCertificate,
         certificate_of_practice: formData.certificateOfPractice,
-        self_declaration: formData.selfDeclarationForm,
+        self_declaration_form: formData.selfDeclarationForm,
       };
 
       for (const [docType, file] of Object.entries(documentMap)) {
