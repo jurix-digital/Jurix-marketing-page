@@ -142,12 +142,17 @@ function StepIndicator({ currentStep }: StepIndicatorProps) {
   );
 }
 
-export default function LawyerKYC() {
+interface LawyerKYCProps {
+  initialToken?: string;
+  initialProfileId?: string;
+}
+
+export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCProps) {
   const [currentStep, setCurrentStep] = useState<Step>('personal');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-  const [token, setToken] = useState('');
-  const [profileId, setProfileId] = useState('');
+  const [token, setToken] = useState(initialToken || '');
+  const [profileId, setProfileId] = useState(initialProfileId || '');
   const [formData, setFormData] = useState<FormData>({
     aadharCard: null,
     panCard: null,
@@ -171,24 +176,24 @@ export default function LawyerKYC() {
     referredBy: '',
   });
 
-  // Check for token and profileId in URL on mount
+  // Check for token and profileId in URL on mount (fallback for direct access)
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && (!token || !profileId)) {
       const urlParams = new URLSearchParams(window.location.search);
       const urlToken = urlParams.get('token');
       const urlProfileId = urlParams.get('profileId');
       if (urlToken) setToken(urlToken);
       if (urlProfileId) setProfileId(urlProfileId);
       
-      // Show error if parameters are missing
-      if (!urlToken || !urlProfileId) {
+      // Show error if parameters are missing after checking both props and URL
+      if (!urlToken && !token && !urlProfileId && !profileId) {
         setMessage({ 
           type: 'error', 
           text: 'Invalid KYC link. Please use the link sent to you with token and profileId.' 
         });
       }
     }
-  }, []);
+  }, [token, profileId]);
 
   const handleFileUpload = (field: keyof FormData, file: File) => {
     setFormData({ ...formData, [field]: file });
