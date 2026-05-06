@@ -1,11 +1,11 @@
 import LawyerKYC from '@/components/LawyerKYC';
 
-export default function KYCPage({ params, searchParams }: {
-  params: { profileId: string };
-  searchParams: { token?: string };
+export default async function KYCPage({ params, searchParams }: {
+  params: Promise<{ profileId: string }>;
+  searchParams: Promise<{ token?: string }>;
 }) {
-  const { profileId } = params;
-  const { token } = searchParams;
+  const { profileId } = await params;
+  const { token } = await searchParams;
 
   console.log('KYCPage - profileId:', profileId, 'token:', token);
 
