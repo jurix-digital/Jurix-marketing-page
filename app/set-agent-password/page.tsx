@@ -10,13 +10,13 @@ const albertSans = Albert_Sans({
   variable: '--font-albert-sans',
 });
 
-export default function SetLawyerPasswordPage() {
+export default function SetAgentPasswordPage() {
   const router = useRouter();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-  const [lawyerId, setLawyerId] = useState<string>('');
+  const [agentId, setAgentId] = useState<string>('');
   const [token, setToken] = useState<string>('');
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function SetLawyerPasswordPage() {
       const urlParams = new URLSearchParams(window.location.search);
       const id = urlParams.get('loginId');
       const secureToken = urlParams.get('token');
-      if (id) setLawyerId(id);
+      if (id) setAgentId(id);
       if (secureToken) setToken(secureToken);
       
       // Show error if parameters are missing
@@ -70,17 +70,17 @@ export default function SetLawyerPasswordPage() {
     setLoading(true);
 
     try {
-      if (!lawyerId || !token) {
+      if (!agentId || !token) {
         throw new Error('Missing loginId or token. Please use the link sent to you.');
       }
 
-      const response = await fetch('/api/lawyer/set-password', {
+      const response = await fetch('/api/agent/set-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          loginId: lawyerId,
+          loginId: agentId,
           token,
           password,
         }),
@@ -100,7 +100,7 @@ export default function SetLawyerPasswordPage() {
       }
 
       const data = await response.json();
-      setMessage({ type: 'success', text: `Password set successfully for lawyer ${lawyerId}! Redirecting to dashboard...` });
+      setMessage({ type: 'success', text: `Password set successfully for agent ${agentId}! Redirecting to dashboard...` });
 
       // Store tokens in localStorage and redirect to dashboard after 2 seconds
       if (data.token) {
@@ -132,7 +132,7 @@ export default function SetLawyerPasswordPage() {
             Set Your Password
           </h1>
           <p className="text-[#666666] mb-6 md:mb-8 text-sm md:text-base">
-            {lawyerId ? `Create a secure password for your Jurix lawyer ${lawyerId}` : 'Create a secure password for your Jurix lawyer account'}
+            {agentId ? `Create a secure password for your Jurix agent ${agentId}` : 'Create a secure password for your Jurix agent account'}
           </p>
 
           {/* Message Display */}

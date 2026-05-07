@@ -14,7 +14,7 @@ export async function POST(request: Request) {
 
     const backendUrl = process.env.BACKEND_API_URL || 'http://localhost:3001';
 
-    const response = await fetch(`${backendUrl}/v1/auth/lawyer/set-password`, {
+    const response = await fetch(`${backendUrl}/v1/auth/executive/set-password`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
