@@ -17,12 +17,23 @@ export default function SetLawyerPasswordPage() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   const [lawyerId, setLawyerId] = useState<string>('');
+  const [token, setToken] = useState<string>('');
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search);
       const id = urlParams.get('loginId');
+      const secureToken = urlParams.get('token');
       if (id) setLawyerId(id);
+      if (secureToken) setToken(secureToken);
+      
+      // Show error if parameters are missing
+      if (!id || !secureToken) {
+        setMessage({
+          type: 'error',
+          text: 'Invalid link. Missing required parameters. Please use the link sent to you.',
+        });
+      }
     }
   }, []);
 
@@ -49,12 +60,8 @@ export default function SetLawyerPasswordPage() {
     setLoading(true);
 
     try {
-      // Get loginId from URL params
-      const urlParams = new URLSearchParams(window.location.search);
-      const loginId = urlParams.get('loginId');
-
-      if (!loginId) {
-        throw new Error('Missing loginId. Please use the link sent to you.');
+      if (!lawyerId || !token) {
+        throw new Error('Missing loginId or token. Please use the link sent to you.');
       }
 
       const response = await fetch('/api/lawyer/set-password', {
@@ -63,7 +70,8 @@ export default function SetLawyerPasswordPage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          loginId,
+          loginId: lawyerId,
+          token,
           password,
         }),
       });

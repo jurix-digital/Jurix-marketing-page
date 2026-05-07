@@ -3,11 +3,11 @@ import { NextResponse } from 'next/server';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { loginId, password } = body;
+    const { loginId, token, password } = body;
 
-    if (!loginId || !password) {
+    if (!loginId || !token || !password) {
       return NextResponse.json(
-        { error: 'Missing required fields: loginId or password' },
+        { error: 'Missing required fields: loginId, token, or password' },
         { status: 400 }
       );
     }
@@ -21,6 +21,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         loginId,
+        token,
         password,
       }),
     });
