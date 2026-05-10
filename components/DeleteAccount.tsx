@@ -1,7 +1,9 @@
+// This component provides information about account deletion for Jurix users.
 'use client';
 
 import React from 'react';
 import { motion, easeOut } from 'framer-motion';
+import Image from 'next/image';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -39,7 +41,7 @@ const DeleteAccount = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <img src="/jurix-policy-logo.svg" alt="Jurix Logo" width="170" height="63" />
+            <Image src="/jurix-policy-logo.svg"alt="Jurix Logo"width={170}height={63}/>
           </motion.div>
         </header>
 

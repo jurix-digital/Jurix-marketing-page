@@ -1,3 +1,4 @@
+// This page is for lawyers to set their password after receiving the email with the secure token. It validates the token and allows them to create a new password for their account.
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -10,7 +11,7 @@ const albertSans = Albert_Sans({
   variable: '--font-albert-sans',
 });
 
-export default function SetLawyerPasswordPage() {
+export default function SetPasswordPage() {
   const router = useRouter();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -100,7 +101,7 @@ export default function SetLawyerPasswordPage() {
       }
 
       const data = await response.json();
-      setMessage({ type: 'success', text: `Password set successfully for lawyer ${lawyerId}! Redirecting to dashboard...` });
+      setMessage({ type: 'success', text: `Password set successfully for account ${lawyerId}! Redirecting to dashboard...` });
 
       // Store tokens in localStorage and redirect to dashboard after 2 seconds
       if (data.token) {
@@ -132,7 +133,7 @@ export default function SetLawyerPasswordPage() {
             Set Your Password
           </h1>
           <p className="text-[#666666] mb-6 md:mb-8 text-sm md:text-base">
-            {lawyerId ? `Create a secure password for your Jurix lawyer ${lawyerId}` : 'Create a secure password for your Jurix lawyer account'}
+            {lawyerId ? `Create a secure password for your Jurix account ${lawyerId}` : 'Create a secure password for your Jurix  account'}
           </p>
 
           {/* Message Display */}
