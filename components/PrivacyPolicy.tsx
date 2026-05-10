@@ -1,7 +1,9 @@
+// This component displays the privacy policy of Jurix, outlining how user data is collected, used, and protected in compliance with Indian laws.
 'use client';
 
 import React from 'react';
 import { motion, easeOut } from 'framer-motion';
+import Image from 'next/image';
 
 // Animation Variants
 const fadeInUp = {
@@ -37,7 +39,7 @@ return (
          animate={{ opacity: 1, y: 0 }}
          transition={{ duration: 0.5 }}
 >
-        <img src="/jurix-policy-logo.svg" alt="Jurix Logo" width="170" height="63" />
+        <Image src="/jurix-policy-logo.svg"alt="Jurix Logo"width={170}height={63}/>
       </motion.div>
     </header>
 
@@ -51,7 +53,9 @@ return (
 
       <motion.section className="section" variants={fadeInUp}>
         <h2 className="section-heading">Introduction</h2>
-        <p>Jurix ("Platform", "we", "us", or "our") is committed to protecting the privacy and personal data of users ("you", "your"), including clients, lawyers, and visitors accessing our website, mobile application, and related services.</p>
+        <p>
+        Jurix (&quot;Platform&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is committed to protecting the privacy and personal data of users (&quot;you&quot;, &quot;your&quot;), including clients, lawyers, and visitors accessing our website, mobile application, and related services.
+        </p>
         <p>This Privacy Policy explains how we collect, use, disclose, store, and protect your personal data in accordance with applicable Indian laws, including the Information Technology Act, 2000 and the Digital Personal Data Protection Act, 2023.</p>
         <p>By accessing or using Jurix, you consent to the practices described in this Privacy Policy.</p>
       </motion.section>
