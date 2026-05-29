@@ -69,6 +69,9 @@ interface KycValidationResult {
   roleLabel?: string;
   docTypes?: SupportedDocType[];
   mandatoryDocTypes?: SupportedDocType[];
+  resubmissionPending?: boolean;
+  requestedDocTypes?: SupportedDocType[];
+  requestedDocuments?: SupportedDocType[];
 }
 
 interface FileUploadBoxProps {
@@ -87,6 +90,7 @@ interface StepIndicatorProps {
 interface LawyerKYCProps {
   initialToken?: string;
   initialProfileId?: string;
+  initialMode?: string;
 }
 
 interface UploadConfig {
@@ -229,6 +233,14 @@ const PROFESSIONAL_UPLOAD_CONFIGS: Record<ProfileType, UploadConfig[]> = {
       maxSize: '4MB',
     },
   ],
+};
+
+const SELF_DECLARATION_UPLOAD_CONFIG: UploadConfig = {
+  label: 'Self Declaration Form',
+  field: 'selfDeclarationForm',
+  docType: 'self_declaration_form',
+  accept: 'image/*,.pdf',
+  maxSize: '4MB',
 };
 
 const STEP_SEQUENCE: Step[] = [
@@ -415,19 +427,31 @@ function StepIndicator({ currentStep }: StepIndicatorProps) {
     }
   }
 
-  function filterAllowedDocTypes(
-    docTypes: SupportedDocType[],
-    allowedDocTypes: Set<SupportedDocType>,
-  ) {
+  function filterAllowedDocTypes(docTypes: SupportedDocType[],allowedDocTypes: Set<SupportedDocType>,) {
     return docTypes.filter((docType) => allowedDocTypes.has(docType));
   }
 
-export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCProps) {
+  function buildUploadConfigLookup(profileType: ProfileType) {
+    const configs = [
+      ...PERSONAL_UPLOAD_CONFIGS,
+      ...PROFESSIONAL_UPLOAD_CONFIGS[profileType],
+      SELF_DECLARATION_UPLOAD_CONFIG,
+    ];
+
+    return configs.reduce((lookup, config) => {
+      lookup[config.docType] = config;
+      return lookup;
+    }, {} as Record<SupportedDocType, UploadConfig>);
+  }
+
+export default function LawyerKYC({ initialToken, initialProfileId, initialMode }: LawyerKYCProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const isDeepLinkFlow = pathname.startsWith('/kyc/');
   const searchToken = searchParams.get('token') || '';
   const searchProfileId = searchParams.get('profileId') || '';
+  const searchMode = searchParams.get('mode') || '';
+  const isResubmissionLink = initialMode === 'resubmission' || searchMode === 'resubmission';
   const [currentStep, setCurrentStep] = useState<Step>('personal');
   const [loading, setLoading] = useState(false);
   const [isValidatingToken, setIsValidatingToken] = useState(false);
@@ -443,6 +467,9 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
     DEFAULT_MANDATORY_DOC_TYPES_BY_ROLE.lawyer,
   );
   const [hasValidatedRole, setHasValidatedRole] = useState(false);
+  const [isResubmissionMode, setIsResubmissionMode] = useState(isResubmissionLink);
+  const [requestedDocTypes, setRequestedDocTypes] = useState<SupportedDocType[]>([]);
+  const [resubmissionFiles, setResubmissionFiles] = useState<Partial<Record<SupportedDocType, File | null>>>({});
   const [formData, setFormData] = useState<FormData>({
     aadharCard: null,
     panCard: null,
@@ -494,6 +521,10 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
   const visibleProfessionalUploads = PROFESSIONAL_UPLOAD_CONFIGS[profileType].filter(({ docType }) =>
     allowedDocTypes.includes(docType),
   );
+  const uploadConfigLookup = buildUploadConfigLookup(profileType);
+  const visibleResubmissionUploads = requestedDocTypes
+    .map((docType) => uploadConfigLookup[docType])
+    .filter((config): config is UploadConfig => Boolean(config));
   const DECLARATION_ROLE_LABELS: Record<ProfileType, string> = {
   clerk: 'I am a registered or practicing Law Clerk.',
   lawyer: 'I am a registered advocate under the Bar Council of India.',
@@ -550,8 +581,20 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
         const metadata = resolveKycMetadata(data);
         setProfileType(metadata.profileType);
         setRoleLabel(metadata.roleLabel);
-        setAllowedDocTypes(metadata.docTypes);
-        setMandatoryDocTypes(metadata.mandatoryDocTypes);
+        let resubmissionDocs = data.requestedDocTypes || data.requestedDocuments || [];
+        if (!resubmissionDocs.length && (data.resubmissionPending || isResubmissionLink)) {
+          resubmissionDocs = await fetchResubmissionDocs();
+        }
+        const hasResubmissionMode = Boolean(data.resubmissionPending || isResubmissionLink || resubmissionDocs.length);
+        const activeDocTypes = hasResubmissionMode ? resubmissionDocs : metadata.docTypes;
+        const activeMandatoryDocTypes = hasResubmissionMode ? resubmissionDocs : metadata.mandatoryDocTypes;
+        setIsResubmissionMode(hasResubmissionMode);
+        setAllowedDocTypes(activeDocTypes);
+        setMandatoryDocTypes(activeMandatoryDocTypes);
+        setRequestedDocTypes(hasResubmissionMode ? resubmissionDocs : []);
+        if (hasResubmissionMode) {
+          setCurrentStep('review');
+        }
         setHasValidatedRole(true);
         setMessage(null);
       } catch (error) {
@@ -577,7 +620,7 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
     return () => {
       isMounted = false;
     };
-  }, [profileId, requiresRoleValidation, token]);
+  }, [isResubmissionLink, profileId, requiresRoleValidation, token]);
 
   useEffect(() => {
     if (!isClerkProfile) {
@@ -598,6 +641,36 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
 
   const handleCheckboxChange = (field: keyof FormData,value: boolean,) => {
     updateFormData(field, value);
+  };
+
+  const requireTokenContext = () => {
+    if (!token || !profileId) {
+      throw new Error('Missing token or profileId');
+    }
+  };
+
+  const uploadSelectedDocuments = async (docTypes: SupportedDocType[],getFile: (docType: SupportedDocType) => File | null,): Promise<UploadedDocument[]> => {
+    const documents: UploadedDocument[] = [];
+
+    for (const docType of docTypes) {
+      const file = getFile(docType);
+      if (file) {
+        documents.push(await uploadDocument(file, docType));
+      }
+    }
+
+    return documents;
+  };
+
+  const fetchResubmissionDocs = async (): Promise<SupportedDocType[]> => {
+    const response = await fetch(`/api/kyc/profile/${profileId}`);
+
+    if (!response.ok) {
+      return [];
+    }
+
+    const data: { requestedDocTypes?: SupportedDocType[]; requestedDocuments?: SupportedDocType[] } = await response.json();
+    return data.requestedDocTypes || data.requestedDocuments || [];
   };
 
   const navigateStep = (direction: 1 | -1) => {
@@ -697,6 +770,67 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
     };
   };
 
+  const getResubmissionFile = (docType: SupportedDocType) => resubmissionFiles[docType] || null;
+
+  const handleResubmissionFileUpload = (docType: SupportedDocType, file: File) => {
+    setResubmissionFiles((current) => ({
+      ...current,
+      [docType]: file,
+    }));
+  };
+
+  const handleSubmitResubmission = async () => {
+    setMessage(null);
+    setLoading(true);
+
+    try {
+      requireTokenContext();
+      if (!requestedDocTypes.length) throw new Error('No resubmission documents were requested.');
+
+      const missingFiles = requestedDocTypes.filter((docType) => !getResubmissionFile(docType));
+      if (missingFiles.length > 0) {
+        const labels = missingFiles.map((docType) => uploadConfigLookup[docType]?.label || docType);
+        throw new Error(`Please upload: ${labels.join(', ')}.`);
+      }
+
+      const documents = await uploadSelectedDocuments(requestedDocTypes, getResubmissionFile);
+
+      const submitPayload = {
+        profileId,
+        documents,
+        verification: {
+          requestId: '',
+          status: 'submitted',
+          docType: 'kyc',
+          extractedData: {},
+        },
+      };
+
+      const submitFormData = new FormData();
+      submitFormData.append('data', JSON.stringify(submitPayload));
+      submitFormData.append('token', token);
+      submitFormData.append('profileId', profileId);
+
+      const res = await fetch('/api/kyc/submit', {
+        method: 'POST',
+        body: submitFormData,
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to submit KYC resubmission');
+      }
+
+      setMessage({ type: 'success', text: 'KYC resubmission submitted successfully' });
+      setIsResubmissionMode(false);
+      setCurrentStep('success');
+    } catch (err) {
+      console.error(err);
+      setMessage({ type: 'error', text: err instanceof Error ? err.message : 'Failed to submit KYC resubmission. Please try again.' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const getDocumentMap = () =>
   Object.entries(DOCUMENT_FIELD_MAP).reduce<Record<string, File | null>>((documentMap, [docType, field]) => {
     if (allowedDocTypes.includes(docType as SupportedDocType)) {
@@ -708,6 +842,11 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
   }, {});
 
   const handleSubmitKYC = async () => {
+    if (isResubmissionMode) {
+      await handleSubmitResubmission();
+      return;
+    }
+
     setMessage(null);
     setLoading(true);
 
@@ -717,9 +856,7 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
         throw new Error('Please fill in all required fields');
       }
 
-      if (!token || !profileId) {
-        throw new Error('Missing token or profileId');
-      }
+      requireTokenContext();
 
       if (isClerkProfile) {
         const missingRequiredUploads = getMissingUploadLabels([
@@ -736,17 +873,11 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
         throw new Error('Please complete all required declarations before submitting.');
       }
 
-      // Upload documents individually
-      const documents: UploadedDocument[] = [];
-
       const documentMap = getDocumentMap();
-
-      for (const [docType, file] of Object.entries(documentMap)) {
-        if (file) {
-          const uploadedDoc = await uploadDocument(file, docType);
-          documents.push(uploadedDoc);
-        }
-      }
+      const documents = await uploadSelectedDocuments(
+        Object.keys(documentMap) as SupportedDocType[],
+        (docType) => documentMap[docType] as File | null,
+      );
 
       // Submit KYC with all required fields
       const submitPayload = {
@@ -761,7 +892,7 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
         documents,
         verification: {
           requestId: '',
-          status: 'pending',
+          status: 'submitted',
           docType: 'kyc',
           extractedData: {},
         },
@@ -793,13 +924,14 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
 
   const showLoadingState = requiresRoleValidation && !message && (isValidatingToken || !hasValidatedRole);
   const canRenderForm = !requiresRoleValidation || hasValidatedRole;
+  const showResubmissionFlow = isResubmissionMode || isResubmissionLink;
 
   return (
     <div className="min-h-screen bg-white py-8 md:py-12 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
           <h1 className={`${albertSans.className} text-2xl md:text-3xl font-bold text-[#2D3136] mb-2`}>
-            {roleLabel} KYC Verification
+            {showResubmissionFlow ? `${roleLabel} KYC Resubmission` : `${roleLabel} KYC Verification`}
           </h1>
           <p className="text-[#666666] mb-6 md:mb-8 text-sm md:text-base">
             Complete your KYC verification to start using Jurix platform
@@ -821,8 +953,45 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
           {showLoadingState ? (
             <p className="text-[#666666] text-sm md:text-base">Validating KYC link...</p>
           ) : canRenderForm ? (
-            <>
-              <StepIndicator currentStep={currentStep} />
+            showResubmissionFlow ? (
+              <div className="space-y-6">
+                <div className="rounded-2xl border border-blue-100 bg-blue-50/70 p-5 md:p-6">
+                  <h2 className={`${albertSans.className} text-lg md:text-2xl font-semibold text-[#2D3136] mb-2`}>
+                    Upload only the requested documents
+                  </h2>
+                  <p className="text-sm md:text-base text-[#4b5563]">
+                    Your admin requested a partial resubmission. Please upload only the documents listed below.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                  {visibleResubmissionUploads.map((upload) => (
+                    <FileUploadBox
+                      key={upload.docType}
+                      label={upload.label}
+                      field={upload.field}
+                      accept={upload.accept}
+                      maxSize={upload.maxSize}
+                      file={getResubmissionFile(upload.docType)}
+                      onFileUpload={(field, file) => handleResubmissionFileUpload(upload.docType, file)}
+                    />
+                  ))}
+                </div>
+
+                <div className="flex flex-col md:flex-row gap-3 md:gap-4">
+                  <button
+                    onClick={handleSubmitKYC}
+                    disabled={loading || !requestedDocTypes.length}
+                    className={`${albertSans.className} w-full md:w-auto inline-flex items-center justify-center gap-4 px-[10px] py-[10px] rounded-full text-[#FCFCFC] text-[14px] md:text-[16px] shadow-md hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer`}
+                    style={{ background: 'linear-gradient(90deg, #4261A8 0%, #304A85 100%)' }}
+                  >
+                    {loading ? 'Submitting...' : 'Submit'}
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <>
+                <StepIndicator currentStep={currentStep} />
 
               {currentStep === 'personal' && (
                 <div className="space-y-4 md:space-y-6">
@@ -1151,7 +1320,8 @@ export default function LawyerKYC({ initialToken, initialProfileId }: LawyerKYCP
                   </button>
                 </div>
               )}
-            </>
+              </>
+            )
           ) : null}
         </div>
       </div>
