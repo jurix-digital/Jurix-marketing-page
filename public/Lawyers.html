@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Jurix — Built for the modern legal professional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="home.css"/>
+<link rel="stylesheet" href="consumers.css"/>
+<link rel="stylesheet" href="lawyers.css"/>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#F0E5D0"/><text x="50" y="62" font-family="Playfair Display,serif" font-size="38" font-style="italic" fill="#8D621A" text-anchor="middle">Jx</text></svg>
+</template>
+
+<!-- ===== ICON SPRITE ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 6l6 6-6 6"/></symbol>
+  <symbol id="ic-arrowur" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+  <symbol id="ic-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="ic-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 11v4M10 13h4"/></symbol>
+  <symbol id="ic-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></symbol>
+  <symbol id="ic-star-line" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.5 5.1 5.6.8-4 3.9 1 5.6L12 16.3 6.4 18.9l1-5.6-4-3.9 5.6-.8z"/></symbol>
+  <symbol id="ic-ai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 3.2a.53.53 0 0 1 1 0l1.5 5.05a2 2 0 0 0 1.32 1.32l5.05 1.5a.53.53 0 0 1 0 1l-5.05 1.5a2 2 0 0 0-1.32 1.32l-1.5 5.05a.53.53 0 0 1-1 0l-1.5-5.05a2 2 0 0 0-1.32-1.32l-5.05-1.5a.53.53 0 0 1 0-1l5.05-1.5a2 2 0 0 0 1.32-1.32z"/><path d="M19 4v3M20.5 5.5h-3"/></symbol>
+  <symbol id="ic-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12.5" rx="2"/><path d="M8 7.5V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1.5"/><path d="M3 13h18"/></symbol>
+  <symbol id="ic-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.6"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16.5 4.6a3.6 3.6 0 0 1 0 7"/><path d="M18 14a6.5 6.5 0 0 1 3.5 6"/></symbol>
+  <symbol id="ic-usercheck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2.5 20a6.8 6.8 0 0 1 13 0"/><path d="M16 11l2 2 4-4"/></symbol>
+  <symbol id="ic-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="ic-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 9.5h16M8 3v4M16 3v4"/><path d="M12 13v4M10 15h4"/></symbol>
+  <symbol id="ic-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v16a2 2 0 0 0 2 2h14"/><path d="M9 14l3-4 3 2 4-6"/></symbol>
+  <symbol id="ic-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2.2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="ic-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></symbol>
+  <symbol id="ic-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="16" rx="2"/><path d="M9 5V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="M9 11h6M9 15h4"/></symbol>
+  <symbol id="ic-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+  <symbol id="ic-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+  <symbol id="ic-checkcircle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12l2.4 2.4L15.5 9.5"/></symbol>
+  <symbol id="ic-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="ic-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5-5L5 21"/></symbol>
+  <symbol id="ic-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></symbol>
+  <symbol id="ic-x" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.5 3h3l-7 8 8.2 10h-6.4l-5-6.2L8 21H5l7.5-8.6L4.6 3H11l4.5 5.6z"/></symbol>
+  <symbol id="ic-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7.2v.01M11 17v-4a2 2 0 0 1 4 0v4M11 17v-7"/></symbol>
+  <symbol id="ic-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 6.5v.01"/></symbol>
+  <symbol id="ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+</svg>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <a href="index.html"><img class="logo" src="img/logo.png" alt="Jurix"/></a>
+  <div class="links">
+    <a href="index.html">Home</a>
+    <a href="Consumers.html">For Consumers</a>
+    <a href="Lawyers.html" class="active">For Lawyers</a>
+    <a href="The Ecosystem.html">The Ecosystem</a>
+    <a href="About.html">About</a>
+    <a href="Leadership.html">Leadership</a>
+    <a href="Careers.html">Careers</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+  <a href="#" class="signin">Sign In <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+  <button class="burger" type="button" aria-label="Menu"><svg viewBox="0 0 24 24"><use href="#ic-menu"/></svg></button>
+</nav>
+<div class="mmenu">
+  <a href="index.html">Home</a><a href="Consumers.html">For Consumers</a><a href="Lawyers.html">For Lawyers</a>
+  <a href="The Ecosystem.html">The Ecosystem</a><a href="About.html">About</a><a href="Leadership.html">Leadership</a><a href="Careers.html">Careers</a><a href="Contact.html">Contact</a>
+</div>
+
+<main data-screen-label="Lawyers">
+
+<!-- ===== HERO ===== -->
+<section class="l-hero">
+  <div class="container l-hero-grid">
+    <div class="copy reveal">
+      <h1>Built for the<br/><em>modern</em> legal<br/>professional.</h1>
+      <p class="lede">Jurix helps lawyers streamline workflows, manage clients, coordinate teams, and grow their practice through modern legal infrastructure.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-gold">Join as Lawyer <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+        <a href="#demo" class="btn btn-cream">Schedule demo <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+      </div>
+    </div>
+    <div class="l-hero-art reveal" style="--i:1"><img src="img/lawyer-hero.png" alt="Jurix lawyer app"/></div>
+  </div>
+</section>
+
+<!-- ===== WHAT YOU CAN DO ===== -->
+<section class="lfeatures">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">What you can do</span><h2 class="h-serif">Everything you need to run <em>your practise.</em></h2></div>
+    <div class="fgrid" data-stagger>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-briefcase"/></svg></span><h4>Get Verified Clients</h4><p>Receive structured and verified legal requests.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-ai"/></svg></span><h4>AI-Assisted Intake</h4><p>Client details organized before consultations begin.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-folder"/></svg></span><h4>Manage Cases Efficiently</h4><p>Track files, hearings, updates, and timelines in one place.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-users"/></svg></span><h4>Coordinate Teams</h4><p>Collaborate with clerks, juniors, and support staff.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-calendar"/></svg></span><h4>Schedule Calls &amp; Hearings</h4><p>Manage appointments, reminders, and calendars seamlessly.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-chart"/></svg></span><h4>Practice Insights</h4><p>Monitor cases, hearings and workload in real time.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-lock"/></svg></span><h4>Secure Communication</h4><p>Encrypted conversations with clients and team members.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-ai"/></svg></span><h4>AI Legal Assistance</h4><p>Research, summaries, drafting, and operational support.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-file"/></svg></span><h4>Share Templates</h4><p>Access and distribute legal templates digitally.</p></div>
+    </div>
+    <p class="compliance-note reveal">AI features provide general legal information and drafting assistance to support your own professional judgment — they are not legal advice.</p>
+  </div>
+</section>
+
+<!-- ===== ONE DASHBOARD ===== -->
+<section class="dash">
+  <div class="container dash-grid">
+    <div class="intro reveal">
+      <span class="eyebrow">What it is</span>
+      <h2 class="h-serif">One dashboard.<br/><em>Your whole</em> practice.</h2>
+      <p>Cases, clients, teams and hearings — every part of your practice, visible and in control from a single place.</p>
+    </div>
+    <div class="dash-art reveal" style="--i:1"><img src="img/lawyer-dash.png" alt="Jurix lawyer dashboard analytics"/></div>
+  </div>
+</section>
+
+<!-- ===== TEAM ===== -->
+<section class="team">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">Team</span><h2 class="h-serif">Build <em>your team</em> inside Jurix.</h2></div>
+    <p class="sub reveal">Bring trusted juniors, clerks and coordinators into your cases — all working under your supervision as the engaged advocate.</p>
+    <div class="team-grid" data-stagger>
+      <div class="team-card reveal">
+        <span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-usercheck"/></svg></span>
+        <h3>Junior advocates</h3><div class="trule"></div>
+        <p>Litigation support, drafting and research, under your supervision.</p>
+        <a href="#" class="hire">Add to your team <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+      </div>
+      <div class="team-card reveal">
+        <span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-user"/></svg></span>
+        <h3>Clerks</h3><div class="trule"></div>
+        <p>Filing, banking and court coordination, as directed by the advocate.</p>
+        <a href="#" class="hire">Add to your team <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+      </div>
+      <div class="team-card reveal">
+        <span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-users"/></svg></span>
+        <h3>Coordinators</h3><div class="trule"></div>
+        <p>Scheduling, follow-ups, workflows.</p>
+        <a href="#" class="hire">Add to your team <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY ===== -->
+<section class="lwhy">
+  <div class="container commit-grid">
+    <div class="intro reveal">
+      <span class="eyebrow">Why law practices choose Jurix</span>
+      <h2 class="h-serif">Less admin.<br/><em>More practice.</em></h2>
+      <p>Built to take the busywork off your desk so you can spend more of your day on actual legal work.</p>
+    </div>
+    <div class="commit-list" data-stagger>
+      <div class="cm reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-clipboard"/></svg></span><div><h5>Reduced admin overhead</h5><p>Less time in tasks, more time on cases.</p></div></div>
+      <div class="cm reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-users"/></svg></span><div><h5>Better client coordination</h5><p>Clearer communication and updates.</p></div></div>
+      <div class="cm reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-layers"/></svg></span><div><h5>Modern legal workflows</h5><p>Built for the digital-first practice.</p></div></div>
+      <div class="cm reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-briefcase"/></svg></span><div><h5>Scalable legal operations</h5><p>Support for teams of any size.</p></div></div>
+      <div class="cm reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-eye"/></svg></span><div><h5>Directory presence</h5><p>Listed in the verified advocate directory in neutral order.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="pricing">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">Pricing &amp; plans</span><h2 class="h-serif">Simple plans. <em>Pay only</em> when you grow.</h2></div>
+    <div class="plans" data-stagger>
+      <div class="plan reveal">
+        <span class="ptag">Starter</span>
+        <div class="price">Free</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Up to 5 active cases</li>
+          <li><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Basic profile</li>
+          <li><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Chat &amp; messaging</li>
+        </ul>
+        <button class="pbtn" type="button">Choose Starter</button>
+      </div>
+      <div class="plan featured reveal">
+        <span class="ptag">Practice</span>
+        <div class="price">₹999 <small>/mo</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Unlimited cases</li>
+          <li><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Team workspace</li>
+          <li><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Document workspace</li>
+          <li><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Calendar &amp; reminders</li>
+        </ul>
+        <button class="pbtn" type="button">Choose Practise</button>
+      </div>
+      <div class="plan reveal">
+        <span class="ptag">Firm</span>
+        <div class="price">Custom</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Multi-lawyer teams</li>
+          <li><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Advanced AI</li>
+          <li><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Dedicated support</li>
+        </ul>
+        <button class="pbtn" type="button">Choose Firm</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEMO ===== -->
+<section class="demo" id="demo">
+  <div class="container demo-grid">
+    <div class="intro reveal">
+      <span class="eyebrow">Why law practices choose Jurix</span>
+      <h2 class="h-serif">See Jurix <em>in action.</em></h2>
+      <p>A 30-minute walkthrough with our lawyer success team. We&rsquo;ll cover onboarding, case migration and team setup.</p>
+      <ul class="checks">
+        <li><svg viewBox="0 0 24 24"><use href="#ic-checkcircle"/></svg>Personalized walkthrough</li>
+        <li><svg viewBox="0 0 24 24"><use href="#ic-checkcircle"/></svg>Q&amp;A specific to your practice</li>
+        <li><svg viewBox="0 0 24 24"><use href="#ic-checkcircle"/></svg>No commitment</li>
+      </ul>
+    </div>
+    <div class="formcard reveal" style="--i:1">
+      <h3>Book a demo</h3>
+      <div class="fld"><label>Full name</label><input type="text" placeholder="Enter your full name"/></div>
+      <div class="fld"><label>Bar Council Reg. No.</label><input type="text" placeholder="ABC/1234/2024"/></div>
+      <div class="fld-row">
+        <div class="fld"><label>Email</label><input type="email" placeholder="name@example.com"/></div>
+        <div class="fld"><label>Mobile</label><input type="tel" placeholder="+91 98765 43210"/></div>
+      </div>
+      <div class="fld-row">
+        <div class="fld"><label>City</label><div class="sel">Select city <svg viewBox="0 0 24 24"><use href="#ic-chevron"/></svg></div></div>
+        <div class="fld"><label>Area of Practice</label><div class="sel">Select <svg viewBox="0 0 24 24"><use href="#ic-chevron"/></svg></div></div>
+      </div>
+      <div class="fld"><label>Preferred Date &amp; Time</label><input type="text" placeholder="Select a date and time"/></div>
+      <button class="submit" type="button">Request Demo <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="l-cta">
+  <div class="container">
+    <h2 class="reveal">Grow your <em>legal practice</em><br/>with Jurix.</h2>
+    <div class="cta-actions reveal" style="--i:1">
+      <a href="#" class="btn btn-dark">Join as lawyer <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+      <a href="#demo" class="btn btn-cream">Schedule demo <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="top">
+      <div class="brand">
+        <img class="logo" src="img/logo.png" alt="Jurix"/>
+        <p>Legal access, reimagined. Built for consumers and legal professionals.</p>
+        <div class="stores">
+          <a href="https://apps.apple.com/in/app/jurix/id6759278150" class="store-badge" target="_blank" rel="noopener noreferrer"><img src="img/appstore.svg" alt="Download on the App Store"/></a>
+          <a href="https://play.google.com/store/apps/details?id=com.jurix.jurix_mobile" class="store-badge" target="_blank" rel="noopener noreferrer"><img src="img/googleplay.svg" alt="Get it on Google Play"/></a>
+        </div>
+        <div class="social" style="margin-top:18px">
+          <a href="https://www.linkedin.com/company/jurixofficial/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><use href="#ic-linkedin"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><use href="#ic-x"/></svg></a>
+          <a href="https://www.instagram.com/jurix.official" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><use href="#ic-instagram"/></svg></a>
+        </div>
+      </div>
+      <div><h6>Platform</h6><ul><li><a href="Consumers.html">For Consumers</a></li><li><a href="Lawyers.html">For Lawyers</a></li><li><a href="The Ecosystem.html">The Ecosystem</a></li><li><a href="Jurix Plans.html">Plans</a></li></ul></div>
+      <div><h6>Company</h6><ul><li><a href="About.html">About</a></li><li><a href="Careers.html">Careers</a></li><li><a href="Contact.html">Contact</a></li></ul></div>
+      <div><h6>Support</h6><ul><li><a href="FAQ.html">FAQs</a></li><li><a href="Trust &amp; Security.html">Trust &amp; Security</a></li></ul></div>
+      <div><h6>Legal</h6><ul><li><a href="Privacy Policy.html">Privacy Policy</a></li><li><a href="Terms of Use.html">Terms of Use</a></li><li><a href="Cookies.html">Cookies</a></li><li><a href="Refund Policy.html">Refund Policy</a></li><li><a href="Compliance.html">Compliance</a></li></ul></div>
+    </div>
+    <div class="rule"></div>
+    <div class="foot-legal">
+      <p><strong>Disclaimer:</strong> JuriX is a technology platform operated by JuriX Legal Technologies Pvt. Ltd. JuriX is not a law firm, does not provide legal advice or representation, and does not guarantee any outcome. All legal services are provided by independent, verified advocates who are solely responsible for the advice and services they give, and advocate fees are set and collected by the advocate directly. JuriX operates a passive, verified advocate directory and a technology facilitation layer; it does not solicit, rank, rate, recommend or assign advocates. By accessing this website you acknowledge that there has been no advertisement, solicitation or inducement of any kind to engage any advocate; nothing here creates a lawyer–client relationship. AI features provide general legal information, not legal advice, and are not a substitute for a qualified advocate.</p>
+      <p>Grievance Officer: <a href="mailto:grievance@jurix.in">grievance@jurix.in</a> &middot; Security: <a href="mailto:security@jurix.in">security@jurix.in</a> &middot; Complaints are acknowledged within 24 hours and resolved within 15 days.</p>
+    </div>
+    <div class="rule"></div>
+    <div class="bottom">
+      <span>© 2026 Jurix Legal Technologies Pvt. Ltd. &middot; CIN: [to be added] &middot; Reg. office: [to be added] &middot; GSTIN: [to be added]</span>
+      <span class="langs">India · English · हिन्दी · తెలుగు</span>
+    </div>
+  </div>
+</footer>
+
+<script src="home.js"></script>
+  <script src="cookie-consent.js"></script>
+</body>
+</html>

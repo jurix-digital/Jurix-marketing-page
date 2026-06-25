@@ -1,0 +1,123 @@
+/* ===========================================================
+   Jurix — The Ecosystem page (extends home.css)
+   =========================================================== */
+
+/* ---------- HERO ---------- */
+.e-hero{padding:184px 0 60px;}
+.e-hero-grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:46px;}
+.e-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(46px,5.8vw,74px);line-height:1.04;letter-spacing:-.02em;color:var(--ink-2);}
+.e-hero h1 em{font-style:italic;font-weight:500;background:linear-gradient(92deg,#C89541,#8D621A);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.e-hero .lede{margin:24px 0 30px;max-width:440px;font-size:15px;line-height:1.5;}
+
+/* ecosystem diagram (SVG) */
+.e-hero-art{display:flex;align-items:center;justify-content:center;}
+.eco-svg{width:100%;height:auto;max-width:560px;display:block;}
+
+/* ---------- ROLES ---------- */
+.roles{padding:56px 0 64px;}
+.roles .sec-head{align-items:center;text-align:center;margin-bottom:42px;}
+.role-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+.rcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;min-height:230px;transition:transform .25s,box-shadow .25s,background .25s,border-color .25s;}
+.rcard:hover{background:linear-gradient(150deg,#EFCE86,#E0B45F);border-color:transparent;transform:translateY(-5px);box-shadow:0 26px 50px -26px rgba(141,98,26,.6);}
+.rcard:hover .tile{background:rgba(255,255,255,.4);box-shadow:none;color:#6E4E12;}
+.rcard:hover h3{color:#3A2A0C;}
+.rcard:hover p{color:#5A431A;}
+.rcard:hover .rn{color:#7A5616;}
+.rcard .tile{width:50px;height:50px;border-radius:13px;}
+.rcard h3{font-family:var(--serif);font-size:21px;font-weight:500;color:var(--ink-2);letter-spacing:-.01em;}
+.rcard p{font-size:13px;color:var(--muted);line-height:1.45;margin:0;}
+.rcard .rn{margin-top:auto;font-family:var(--serif);font-size:14px;color:var(--gold-2);font-style:italic;}
+
+/* ---------- OPERATIONS ---------- */
+.ops{background:linear-gradient(180deg,#F0E6D1,#EFE3CD);padding:60px 0 66px;}
+.ops .sec-head{margin-bottom:38px;}
+.ops-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start;}
+.opcard{background:#FFFDFA;border:1px solid var(--line);border-radius:20px;padding:34px 32px;display:flex;flex-direction:column;}
+.opcard .num{font-family:var(--serif);font-style:italic;font-size:30px;font-weight:500;color:var(--gold-2);line-height:1;}
+.opcard h3{font-family:var(--serif);font-size:25px;font-weight:500;color:var(--ink-2);letter-spacing:-.01em;line-height:1.14;margin-top:12px;}
+.opcard .rule{height:1px;background:var(--line);margin:22px 0;}
+.opcard ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;}
+.opcard li{display:flex;align-items:center;gap:12px;font-size:14.5px;color:var(--ink-3);letter-spacing:-.01em;}
+.opcard li .dot{width:18px;height:18px;color:var(--gold-2);display:flex;align-items:center;justify-content:center;flex:none;}
+.opcard li .dot svg{width:16px;height:16px;}
+
+/* ---------- COMMUNICATION ---------- */
+.comm{padding:64px 0;}
+.comm-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start;}
+.comm .intro h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:-.02em;color:var(--ink-2);margin-top:14px;}
+.comm .intro h2 em{font-style:italic;color:var(--gold-2);}
+.comm .intro p{font-size:14.5px;color:var(--muted);line-height:1.55;margin-top:16px;max-width:330px;}
+.comm-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.ccard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:11px;}
+.ccard .tile{width:46px;height:46px;border-radius:12px;}
+.ccard h4{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink-2);letter-spacing:-.01em;}
+.ccard p{font-size:13px;color:var(--muted);line-height:1.45;margin:0;}
+
+/* ---------- CASE LIFECYCLE ---------- */
+.lifecycle{background:var(--bg);padding:64px 0;}
+.lifecycle .sec-head{margin-bottom:36px;}
+.life-wrap{background:linear-gradient(150deg,#FFFCF8,#F7F1E9);border:1px solid var(--line);border-radius:24px;padding:38px;}
+.life-row{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;position:relative;}
+.lstep{position:relative;background:#FFFDFA;border:1px solid var(--line);border-radius:14px;padding:20px 18px;display:flex;flex-direction:column;gap:6px;}
+.lstep .num{font-family:var(--serif);font-size:24px;font-weight:500;color:var(--gold-2);font-style:italic;line-height:1;}
+.lstep h4{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink-2);letter-spacing:-.01em;}
+.lstep p{font-size:12px;color:var(--muted);line-height:1.35;margin:0;}
+.lstep .role{margin-top:8px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--gold);}
+.lstep .arrow{position:absolute;top:50%;right:-11px;transform:translateY(-50%);z-index:2;width:20px;height:20px;color:var(--gold-2);background:#FBF3E2;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px var(--line);}
+.lstep .arrow svg{width:12px;height:12px;}
+
+/* ---------- AI + HUMAN ---------- */
+.aih{padding:64px 0;}
+.aih-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
+.aih .intro h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,3.6vw,48px);line-height:1.08;letter-spacing:-.02em;color:var(--ink-2);margin-top:14px;}
+.aih .intro h2 em{font-style:italic;color:var(--gold-2);}
+.aih .intro p{font-size:14.5px;color:var(--muted);line-height:1.55;margin-top:16px;max-width:440px;}
+.aih-list{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;}
+.aih-list li{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--ink-3);letter-spacing:-.01em;}
+.aih-list li .dot{width:22px;height:22px;border-radius:7px;background:#F4E8CF;color:var(--gold);display:flex;align-items:center;justify-content:center;flex:none;}
+.aih-list li .dot svg{width:13px;height:13px;}
+
+/* AI + Human photo */
+.aih-photo{padding:8px;border-radius:24px;background:linear-gradient(150deg,#F2E2BE,#E6CFA0);box-shadow:0 30px 60px -30px rgba(40,30,10,.45);}
+.aih-photo img{width:100%;height:auto;display:block;border-radius:18px;}
+
+/* ---------- JOIN ---------- */
+.join{background:linear-gradient(180deg,#F0E6D1,#EFE3CD);padding:60px 0 66px;}
+.join .sec-head{margin-bottom:38px;}
+.join-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.jcard{background:#FFFDFA;border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:12px;}
+.jcard .tile{width:48px;height:48px;border-radius:13px;}
+.jcard h3{font-family:var(--serif);font-size:21px;font-weight:500;color:var(--ink-2);letter-spacing:-.01em;}
+.jcard p{font-size:13px;color:var(--muted);line-height:1.45;margin:0;}
+.jcard .apply{margin-top:8px;display:inline-flex;align-items:center;gap:8px;align-self:flex-start;background:#fff;border:1px solid var(--line);color:var(--gold-3);font-weight:600;font-size:13px;padding:10px 16px;border-radius:999px;transition:gap .2s,background .2s;}
+.jcard .apply:hover{gap:12px;background:#FFFDF9;}
+.jcard .apply svg{width:14px;height:14px;}
+
+/* ---------- CTA ---------- */
+.e-cta{padding:84px 0;text-align:center;}
+.e-cta h2{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(34px,4.6vw,58px);letter-spacing:-.02em;color:var(--ink-2);line-height:1.06;max-width:14ch;margin:0 auto;}
+.e-cta .cta-actions{justify-content:center;margin-top:28px;}
+
+/* ============= RESPONSIVE ============= */
+@media (max-width:1080px){
+  .role-grid{grid-template-columns:repeat(3,1fr);}
+  .comm-grid,.aih-grid{grid-template-columns:1fr;gap:34px;}
+  .join-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:900px){
+  .e-hero-grid{grid-template-columns:1fr;}
+  .e-hero-art{order:-1;}
+  .eco-svg{max-width:420px;}
+  .e-hero{padding-top:128px;}
+  .ops-grid{grid-template-columns:1fr;}
+  .opcard{min-height:auto;}
+  .life-row{grid-template-columns:repeat(2,1fr);gap:30px 14px;}
+  .lstep .arrow{display:none;}
+  .role-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:620px){
+  .role-grid,.comm-cards,.join-grid,.aih-list{grid-template-columns:1fr;}
+  .life-row{grid-template-columns:1fr;}
+  .opcard ul{grid-template-columns:1fr;}
+  .life-wrap,.opcard{padding:24px;}
+}

@@ -1,0 +1,79 @@
+/* ===========================================================
+   Jurix — Trust & Security page (extends home.css)
+   =========================================================== */
+
+/* ---------- HERO ---------- */
+.t-hero{padding:184px 0 60px;}
+.t-hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:50px;}
+.t-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(48px,6vw,78px);line-height:1.03;letter-spacing:-.02em;color:var(--ink-2);}
+.t-hero h1 em{display:block;font-style:italic;font-weight:500;background:linear-gradient(92deg,#C89541,#8D621A);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.t-hero .lede{margin:24px 0 30px;max-width:400px;font-size:14.5px;line-height:1.55;color:var(--muted);letter-spacing:-.01em;}
+.t-hero-art{padding:8px;border-radius:26px;background:linear-gradient(150deg,#F2E2BE,#E6CFA0);box-shadow:0 32px 64px -30px rgba(40,30,10,.45);}
+.t-hero-art img{width:100%;height:auto;display:block;border-radius:20px;}
+
+/* ---------- PILLARS ---------- */
+.pillars{background:linear-gradient(180deg,#F0E6D1,#EFE3CD);padding:56px 0 64px;}
+.pillars .sec-head{align-items:center;text-align:center;margin-bottom:42px;}
+.pillars h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4.2vw,52px);letter-spacing:-.02em;color:var(--ink-2);}
+.pillars h2 em{font-style:italic;font-weight:500;color:var(--gold-2);}
+.pillar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.pcard{background:#FFFDFA;border:1px solid var(--line);border-radius:18px;padding:26px 24px;display:flex;flex-direction:column;min-height:236px;}
+.pcard .tile{width:48px;height:48px;border-radius:13px;}
+.pcard .tile svg{width:23px;height:23px;}
+.pcard h3{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink-2);letter-spacing:-.01em;line-height:1.14;margin-top:24px;}
+.pcard .rule{height:1px;background:var(--line);margin:18px 0;}
+.pcard p{font-size:13px;color:var(--muted);line-height:1.5;margin:0;}
+
+/* ---------- CERTIFICATIONS ---------- */
+.certs{padding:64px 0;}
+.certs .sec-head{align-items:center;text-align:center;margin-bottom:14px;}
+.certs h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4.2vw,52px);letter-spacing:-.02em;color:var(--ink-2);line-height:1.08;}
+.certs h2 em{font-style:italic;font-weight:500;background:linear-gradient(92deg,#C89541,#8D621A);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.certs .sub{text-align:center;font-size:14px;color:var(--muted);max-width:560px;margin:0 auto 46px;line-height:1.55;letter-spacing:-.01em;}
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 0;max-width:860px;margin:0 auto;}
+.cert{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:6px 24px;position:relative;}
+.cert:not(:nth-child(3n))::after{content:"";position:absolute;right:0;top:6px;bottom:6px;width:1px;background:var(--line);}
+.cert .ic{color:var(--gold-2);display:flex;align-items:center;justify-content:center;}
+.cert .ic svg{width:32px;height:32px;}
+.cert span{font-family:var(--serif);font-size:21px;font-weight:500;color:var(--ink-2);letter-spacing:-.01em;}
+
+/* ---------- PRACTICES ---------- */
+.practices{background:linear-gradient(180deg,#F0E6D1,#EFE3CD);padding:60px 0 66px;}
+.prac-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start;}
+.practices .intro h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,3.8vw,46px);line-height:1.08;letter-spacing:-.02em;color:var(--ink-2);margin-top:16px;}
+.practices .intro p{font-size:13.5px;color:var(--muted);line-height:1.6;margin-top:18px;max-width:300px;letter-spacing:-.01em;}
+.prac-list{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.pracard{background:#FFFDFA;border:1px solid var(--line);border-radius:14px;padding:18px 18px;display:flex;align-items:flex-start;gap:13px;}
+.pracard .ic{width:36px;height:36px;border-radius:10px;background:#FBF1DC;color:var(--gold);display:flex;align-items:center;justify-content:center;flex:none;box-shadow:inset 0 0 0 1px var(--line);}
+.pracard .ic svg{width:18px;height:18px;}
+.pracard h4{font-family:var(--sans);font-size:14.5px;font-weight:600;color:var(--ink-2);letter-spacing:-.01em;line-height:1.2;}
+.pracard p{font-size:12px;color:var(--muted);line-height:1.4;margin:4px 0 0;}
+
+/* ---------- RESPONSIBLE DISCLOSURE ---------- */
+.disclosure{padding:74px 0 88px;text-align:center;}
+.disclosure .sec-head{align-items:center;margin-bottom:16px;}
+.disclosure h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4.4vw,54px);letter-spacing:-.02em;color:var(--ink-2);}
+.disclosure p{font-size:14px;color:var(--muted);max-width:560px;margin:0 auto 26px;line-height:1.55;letter-spacing:-.01em;}
+.disclosure p a{color:var(--gold-2);font-weight:600;}
+.disclosure .cta-actions{justify-content:center;}
+
+/* ============= RESPONSIVE ============= */
+@media (max-width:1080px){
+  .pillar-grid{grid-template-columns:repeat(2,1fr);}
+  .prac-grid{grid-template-columns:1fr;gap:34px;}
+}
+@media (max-width:900px){
+  .t-hero-grid{grid-template-columns:1fr;gap:40px;}
+  .t-hero{padding-top:128px;}
+  .t-hero-art{order:-1;max-width:480px;margin:0 auto;}
+  .cert-grid{grid-template-columns:1fr 1fr;}
+  .cert:nth-child(3n)::after{content:"";}
+  .cert:nth-child(2n)::after{display:none;}
+}
+@media (max-width:620px){
+  .pillar-grid{grid-template-columns:1fr;}
+  .pcard{min-height:auto;}
+  .prac-list{grid-template-columns:1fr;}
+  .cert-grid{grid-template-columns:1fr;}
+  .cert::after{display:none!important;}
+}
