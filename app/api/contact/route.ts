@@ -3,7 +3,24 @@ import { TableClient, AzureNamedKeyCredential } from '@azure/data-tables';
 
 export async function POST(request: Request) {
   try {
-    const { name, email, phone, category, subject, message } = await request.json();
+    const { name, email, phone, category, subject, message, captchaToken } = await request.json();
+
+    // Validate reCAPTCHA token
+    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    if (!recaptchaSecret) {
+      throw new Error('RECAPTCHA_SECRET_KEY is not configured');
+    }
+
+    const recaptchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${recaptchaSecret}&response=${captchaToken}`,
+    });
+
+    const recaptchaData = await recaptchaResponse.json();
+    if (!recaptchaData.success) {
+      throw new Error('reCAPTCHA validation failed');
+    }
 
     // Azure Table Storage Configuration
     const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
