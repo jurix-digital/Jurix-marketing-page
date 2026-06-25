@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Jurix — We'd love to hear from you</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="home.css"/>
+<link rel="stylesheet" href="contact.css"/>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#F0E5D0"/><text x="50" y="62" font-family="Playfair Display,serif" font-size="38" font-style="italic" fill="#8D621A" text-anchor="middle">Jx</text></svg>
+</template>
+
+<!-- ===== ICON SPRITE ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 6l6 6-6 6"/></symbol>
+  <symbol id="ic-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.6"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16.5 4.6a3.6 3.6 0 0 1 0 7"/><path d="M18 14a6.5 6.5 0 0 1 3.5 6"/></symbol>
+  <symbol id="ic-usercheck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2.5 20a6.8 6.8 0 0 1 13 0"/><path d="M16 11l2 2 4-4"/></symbol>
+  <symbol id="ic-thumbsup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1z"/><path d="M7 11l4.2-7.2a2 2 0 0 1 3 2.2L13 11h5.4a2 2 0 0 1 2 2.4l-1.2 6A2 2 0 0 1 17.2 21H7"/></symbol>
+  <symbol id="ic-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16"/><path d="M14 9h4a2 2 0 0 1 2 2v10"/><path d="M8 7h2M8 11h2M8 15h2"/></symbol>
+  <symbol id="ic-news" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h12a1 1 0 0 1 1 1v13H5a1 1 0 0 1-1-1z"/><path d="M17 8h2a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1"/><path d="M7 9h6M7 12.5h6M7 16h4"/></symbol>
+  <symbol id="ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8a13 13 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.4.55 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .55 3.4 1 1 0 0 1-.24 1z"/></symbol>
+  <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></symbol>
+  <symbol id="ic-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6 9 4z"/><path d="M9 4v14M15 6v14"/></symbol>
+  <symbol id="ic-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 11 14"/><path d="M22 3l-7 19-4-8-8-4z"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+  <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="ic-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5-5L5 21"/></symbol>
+  <symbol id="ic-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></symbol>
+  <symbol id="ic-x" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.5 3h3l-7 8 8.2 10h-6.4l-5-6.2L8 21H5l7.5-8.6L4.6 3H11l4.5 5.6z"/></symbol>
+  <symbol id="ic-facebook" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M14 8.5V7c0-.8.5-1 1-1h2V3h-3c-2.2 0-4 1.8-4 4v1.5H8V12h2v9h3.5v-9H16l.5-3.5z"/></symbol>
+  <symbol id="ic-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7.2v.01M11 17v-4a2 2 0 0 1 4 0v4M11 17v-7"/></symbol>
+  <symbol id="ic-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 6.5v.01"/></symbol>
+  <symbol id="ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+</svg>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <a href="index.html"><img class="logo" src="img/logo.png" alt="Jurix"/></a>
+  <div class="links">
+    <a href="index.html">Home</a>
+    <a href="Consumers.html">For Consumers</a>
+    <a href="Lawyers.html">For Lawyers</a>
+    <a href="The Ecosystem.html">The Ecosystem</a>
+    <a href="About.html">About</a>
+    <a href="Leadership.html">Leadership</a>
+    <a href="Careers.html">Careers</a>
+    <a href="Contact.html" class="active">Contact</a>
+  </div>
+  <a href="#" class="signin">Sign In <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+  <button class="burger" type="button" aria-label="Menu"><svg viewBox="0 0 24 24"><use href="#ic-menu"/></svg></button>
+</nav>
+<div class="mmenu">
+  <a href="index.html">Home</a><a href="Consumers.html">For Consumers</a><a href="Lawyers.html">For Lawyers</a>
+  <a href="The Ecosystem.html">The Ecosystem</a><a href="About.html">About</a><a href="Leadership.html">Leadership</a><a href="Careers.html">Careers</a><a href="Contact.html">Contact</a>
+</div>
+
+<main data-screen-label="Contact">
+
+<!-- ===== HERO ===== -->
+<section class="c-hero">
+  <div class="container c-hero-grid">
+    <div class="copy reveal">
+      <h1>We&rsquo;d love to<br/><em>hear from</em> you.</h1>
+      <p class="lede">Support, partnerships, onboarding assistance, business enquiries — our team is here to help.</p>
+      <div class="hero-cta">
+        <a href="index.html" class="btn btn-gold">Explore Jurix <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+        <a href="The Ecosystem.html" class="btn btn-cream">Join the ecosystem <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+      </div>
+    </div>
+    <div class="c-hero-art reveal" style="--i:1">
+      <img src="img/contact-hero.png" alt="Verified Jurix legal expert with AI assistant and verified-expert badges"/>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATEGORIES ===== -->
+<section class="cats">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">Choose a Category</span><h2>Five roles. <em>One coordinated flow.</em></h2></div>
+    <div class="cat-grid" data-stagger>
+      <div class="ccat reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-users"/></svg></span><h3>Consumer Support</h3><p>Need help with your legal journey?</p><a href="#book" class="sel" data-cat="Consumer Support">Select <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a></div>
+      <div class="ccat reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-usercheck"/></svg></span><h3>Lawyer Onboarding</h3><p>Interested in joining as a legal pro?</p><a href="#book" class="sel" data-cat="Lawyer Onboarding">Select <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a></div>
+      <div class="ccat reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-thumbsup"/></svg></span><h3>Partnerships</h3><p>Collaborations &amp; integrations.</p><a href="#book" class="sel" data-cat="Partnerships">Select <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a></div>
+      <div class="ccat reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-building"/></svg></span><h3>Enterprise</h3><p>Business &amp; organizational solutions.</p><a href="#book" class="sel" data-cat="Enterprise">Select <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a></div>
+      <div class="ccat reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-news"/></svg></span><h3>Media &amp; Press</h3><p>Media and comms requests.</p><a href="#book" class="sel" data-cat="Media & Press">Select <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORM + INFO ===== -->
+<section class="contact-main" id="book">
+  <div class="container cm-grid">
+    <!-- form -->
+    <form class="form-card reveal" id="contact-form" novalidate>
+      <h2>Book a demo</h2>
+      <div class="fgrid">
+        <div class="field"><label for="cf-name">Full Name</label><input id="cf-name" type="text" name="name" autocomplete="name"/></div>
+        <div class="field"><label for="cf-email">Email Address</label><input id="cf-email" type="email" name="email" autocomplete="email"/></div>
+        <div class="field"><label for="cf-phone">Phone Number</label><input id="cf-phone" type="tel" name="phone" placeholder="+91 00000 00000" autocomplete="tel"/></div>
+        <div class="field"><label for="cf-cat">Category</label>
+          <select id="cf-cat" name="category">
+            <option value="" disabled selected>Select</option>
+            <option>Consumer Support</option>
+            <option>Lawyer Onboarding</option>
+            <option>Partnerships</option>
+            <option>Enterprise</option>
+            <option>Media &amp; Press</option>
+          </select>
+        </div>
+        <div class="field full"><label for="cf-subject">Subject</label><input id="cf-subject" type="text" name="subject"/></div>
+        <div class="field full"><label for="cf-message">Message</label><textarea id="cf-message" name="message"></textarea></div>
+      </div>
+      <button type="submit" class="submit">Send Message <svg viewBox="0 0 24 24"><use href="#ic-send"/></svg></button>
+    </form>
+
+    <!-- info -->
+    <div class="info-col reveal" style="--i:1">
+      <div class="care-card">
+        <h3>Jurix Care &mdash; 24/7</h3>
+        <p>For urgent help using the Jurix platform.</p>
+        <a href="tel:+919873698737" class="callbtn"><span class="ph"><svg viewBox="0 0 24 24"><use href="#ic-phone"/></svg></span>+91 98736 98737</a>
+      </div>
+      <div class="info-block">
+        <div class="ihd"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-mail"/></svg></span><h4>Email us</h4></div>
+        <a class="mail" href="mailto:support@jurix.in">support@jurix.in</a>
+        <a class="mail" href="mailto:lawyers@jurix.in">lawyers@jurix.in</a>
+      </div>
+      <div class="info-block">
+        <div class="ihd"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-mail"/></svg></span><h4>Grievance Officer</h4></div>
+        <a class="mail" href="mailto:grievance@jurix.in">grievance@jurix.in</a>
+        <p style="font-size:13px;color:var(--muted);margin:8px 0 0;line-height:1.5">Complaints acknowledged within 24 hours; intermediary grievances resolved within 15 days and data-protection grievances within 90 days.</p>
+      </div>
+      <div class="info-block">
+        <div class="ihd"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-map"/></svg></span><h4>Office Address</h4></div>
+        <address>HIG&ndash;66, Tatvamasi Nilayam, KPHB 9th Phase Road, KPHB Colony, Hyderabad, Medchal Malkajgiri, Telangana, 500072</address>
+      </div>
+      <div class="info-block">
+        <div class="ihd"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-thumbsup"/></svg></span><h4>Socials</h4></div>
+        <div class="socrow">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><use href="#ic-linkedin"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><use href="#ic-x"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><use href="#ic-facebook"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><use href="#ic-instagram"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="c-cta">
+  <div class="container">
+    <h2 class="reveal">Let&rsquo;s simplify legal <em>access together.</em></h2>
+    <div class="cta-actions reveal" style="--i:1">
+      <a href="Consumers.html" class="btn btn-dark">Get legal help <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+      <a href="Lawyers.html" class="btn btn-cream">Join as a lawyer <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="top">
+      <div class="brand">
+        <img class="logo" src="img/logo.png" alt="Jurix"/>
+        <p>Legal access, reimagined. Built for consumers and legal professionals.</p>
+        <div class="stores">
+          <a href="https://apps.apple.com/in/app/jurix/id6759278150" class="store-badge" target="_blank" rel="noopener noreferrer"><img src="img/appstore.svg" alt="Download on the App Store"/></a>
+          <a href="https://play.google.com/store/apps/details?id=com.jurix.jurix_mobile" class="store-badge" target="_blank" rel="noopener noreferrer"><img src="img/googleplay.svg" alt="Get it on Google Play"/></a>
+        </div>
+        <div class="social" style="margin-top:18px">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><use href="#ic-linkedin"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><use href="#ic-x"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><use href="#ic-facebook"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><use href="#ic-instagram"/></svg></a>
+        </div>
+      </div>
+      <div><h6>Platform</h6><ul><li><a href="Consumers.html">For Consumers</a></li><li><a href="Lawyers.html">For Lawyers</a></li><li><a href="The Ecosystem.html">The Ecosystem</a></li><li><a href="#">Jurix Pro</a></li></ul></div>
+      <div><h6>Company</h6><ul><li><a href="About.html">About</a></li><li><a href="Careers.html">Careers</a></li><li><a href="Contact.html">Contact</a></li><li><a href="#">Trust &amp; Security</a></li></ul></div>
+      <div><h6>Support</h6><ul><li><a href="FAQ.html">FAQs</a></li><li><a href="Trust &amp; Security.html">Trust &amp; Security</a></li></ul></div>
+      <div><h6>Legal</h6><ul><li><a href="Privacy Policy.html">Privacy Policy</a></li><li><a href="Terms of Use.html">Terms of Use</a></li><li><a href="Cookies.html">Cookies</a></li><li><a href="Refund Policy.html">Refund Policy</a></li><li><a href="Compliance.html">Compliance</a></li></ul></div>
+    </div>
+    <div class="rule"></div>
+    <div class="foot-legal">
+      <p><strong>Disclaimer:</strong> JuriX is a technology platform operated by JuriX Legal Technologies Pvt. Ltd. JuriX is not a law firm, does not provide legal advice or representation, and does not guarantee any outcome. All legal services are provided by independent, verified advocates who are solely responsible for the advice and services they give, and advocate fees are set and collected by the advocate directly. JuriX operates a passive, verified advocate directory and a technology facilitation layer; it does not solicit, rank, rate, recommend or assign advocates. By accessing this website you acknowledge that there has been no advertisement, solicitation or inducement of any kind to engage any advocate; nothing here creates a lawyer–client relationship. AI features provide general legal information, not legal advice, and are not a substitute for a qualified advocate.</p>
+      <p>Grievance Officer: <a href="mailto:grievance@jurix.in">grievance@jurix.in</a> · Security: <a href="mailto:security@jurix.in">security@jurix.in</a> · Complaints are acknowledged within 24 hours and resolved within 15 days.</p>
+    </div>
+    <div class="rule"></div>
+    <div class="bottom">
+      <span>© 2026 Jurix Legal Technologies Pvt. Ltd. · CIN: [to be added] · Reg. office: [to be added] · GSTIN: [to be added]</span>
+      <span class="langs">India · English · हिन्दी · తెలుగు</span>
+    </div>
+  </div>
+</footer>
+
+<script src="home.js"></script>
+<script>
+/* Contact page — category prefill + select styling + form feedback */
+(function(){
+  "use strict";
+  var sel = document.getElementById('cf-cat');
+  if(sel){
+    var sync=function(){ sel.classList.toggle('chosen', !!sel.value); };
+    sel.addEventListener('change', sync); sync();
+  }
+  document.querySelectorAll('.ccat .sel').forEach(function(b){
+    b.addEventListener('click', function(){
+      var cat=b.getAttribute('data-cat');
+      if(sel && cat){ sel.value=cat; sel.classList.add('chosen'); }
+      setTimeout(function(){ var n=document.getElementById('cf-name'); if(n) n.focus(); }, 420);
+    });
+  });
+  var form=document.getElementById('contact-form');
+  if(form){
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      var btn=form.querySelector('.submit');
+      var orig=btn.innerHTML;
+      btn.disabled=true;
+      btn.innerHTML='Sending...';
+
+      var formData={
+        name:document.getElementById('cf-name').value,
+        email:document.getElementById('cf-email').value,
+        phone:document.getElementById('cf-phone').value,
+        category:document.getElementById('cf-cat').value,
+        subject:document.getElementById('cf-subject').value,
+        message:document.getElementById('cf-message').value
+      };
+
+      try{
+        var response=await fetch('/api/contact',{
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify(formData)
+        });
+        var data=await response.json();
+        if(data.ok){
+          btn.innerHTML='Message sent \u2713';
+          btn.style.background='linear-gradient(90deg,#1F8A5B,#15633F)';
+          setTimeout(function(){ btn.innerHTML=orig; btn.style.background=''; btn.disabled=false; form.reset(); if(sel) sel.classList.remove('chosen'); }, 2400);
+        }else{
+          btn.innerHTML='Error - try again';
+          btn.style.background='linear-gradient(90deg,#c53030,#9b2c2c)';
+          setTimeout(function(){ btn.innerHTML=orig; btn.style.background=''; btn.disabled=false; }, 2400);
+        }
+      }catch(err){
+        console.error('Form submission error:',err);
+        btn.innerHTML='Error - try again';
+        btn.style.background='linear-gradient(90deg,#c53030,#9b2c2c)';
+        setTimeout(function(){ btn.innerHTML=orig; btn.style.background=''; btn.disabled=false; }, 2400);
+      }
+    });
+  }
+})();
+</script>
+  <script src="cookie-consent.js"></script>
+</body>
+</html>

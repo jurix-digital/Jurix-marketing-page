@@ -1,0 +1,94 @@
+# Azure Contact Form Setup
+
+This document explains how to set up Azure Table Storage for the Jurix contact form.
+
+## Prerequisites
+
+1. Azure subscription
+2. Azure Storage Account created
+3. Table Storage created within the storage account
+
+## Setup Steps
+
+### 1. Create Azure Storage Account
+
+```bash
+# Using Azure CLI
+az storage account create \
+  --name <your-storage-account-name> \
+  --resource-group jurix-resources \
+  --location eastus \
+  --sku Standard_LRS \
+  --kind StorageV2
+```
+
+### 2. Create Table Storage
+
+```bash
+# Using Azure CLI
+az storage table create \
+  --account-name <your-storage-account-name> \
+  --name contacts \
+  --account-key <your-account-key>
+```
+
+### 3. Get Account Key
+
+```bash
+# Using Azure CLI
+az storage account keys list \
+  --account-name <your-storage-account-name> \
+  --resource-group jurix-resources \
+  --query "[0].value" \
+  -o tsv
+```
+
+### 4. Configure Environment Variables
+
+Add the following to your `.env.local` file:
+
+```env
+AZURE_STORAGE_ACCOUNT_NAME=your_storage_account_name
+AZURE_STORAGE_ACCOUNT_KEY=your_storage_account_key
+AZURE_CONTACT_TABLE_NAME=contacts
+```
+
+## Contact Form Data Structure
+
+Each contact submission is stored as an entity in Azure Table Storage with the following properties:
+
+- `partitionKey`: YYYY-MM (for monthly partitioning)
+- `rowKey`: Unique identifier (timestamp + random string)
+- `name`: Contact's full name
+- `email`: Contact's email address
+- `phone`: Contact's phone number
+- `category`: Contact category (Consumer Support, Lawyer Onboarding, etc.)
+- `subject`: Message subject
+- `message`: Message content
+- `submittedAt`: ISO timestamp of submission
+- `status`: Status (default: 'new')
+
+## API Endpoint
+
+The contact form submits to: `POST /api/contact`
+
+## Viewing Contact Submissions
+
+You can view contact submissions using:
+
+1. **Azure Portal**: Navigate to Storage Account → Table Storage → contacts table
+2. **Azure Storage Explorer**: Desktop application for browsing Azure Storage
+3. **Azure CLI**: 
+   ```bash
+   az storage entity query \
+     --account-name <your-storage-account-name> \
+     --table-name contacts \
+     --account-key <your-account-key>
+   ```
+
+## Security Notes
+
+- Never commit `.env.local` to version control
+- Use Azure Key Vault for production environments
+- Restrict access to the storage account using network rules
+- Enable HTTPS-only access to the storage account

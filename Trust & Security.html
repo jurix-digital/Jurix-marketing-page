@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Jurix — Trust &amp; Security · Built for Legal Trust</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="home.css"/>
+<link rel="stylesheet" href="trust.css"/>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#F0E5D0"/><text x="50" y="62" font-family="Playfair Display,serif" font-size="38" font-style="italic" fill="#8D621A" text-anchor="middle">Jx</text></svg>
+</template>
+
+<!-- ===== ICON SPRITE ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 6l6 6-6 6"/></symbol>
+  <symbol id="ic-verified" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.1 1.6 2.6-.3 1 2.4 2.4 1-.3 2.6L21.5 12l-1.6 2.1.3 2.6-2.4 1-1 2.4-2.6-.3L12 21.5l-2.1-1.6-2.6.3-1-2.4-2.4-1 .3-2.6L2.5 12l1.6-2.1-.3-2.6 2.4-1 1-2.4 2.6.3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="ic-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></symbol>
+  <symbol id="ic-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4"/><path d="M11 11l8 8M16 16l2-2M18.5 18.5l1.5-1.5"/></symbol>
+  <symbol id="ic-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></symbol>
+  <symbol id="ic-ribbon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/><path d="M12 9l1.2.9-.5-1.5 1.3-1h-1.6L12 6l-.4 1.4H10l1.3 1-.5 1.5z"/></symbol>
+  <symbol id="ic-shieldcheck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="ic-folderlock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v3"/><rect x="13" y="14" width="8" height="6" rx="1.4"/><path d="M15 14v-1.5a2 2 0 0 1 4 0V14"/></symbol>
+  <symbol id="ic-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></symbol>
+  <symbol id="ic-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></symbol>
+  <symbol id="ic-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><path d="M8 7h.01M8 17h.01"/></symbol>
+  <symbol id="ic-residency" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></symbol>
+  <symbol id="ic-encrypt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="ic-2fa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M12 9v3M12 15h.01"/></symbol>
+  <symbol id="ic-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 5 4-12 2 7h6"/></symbol>
+  <symbol id="ic-pentest" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M12 8v4M9.5 10.5h5"/></symbol>
+  <symbol id="ic-bgcheck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.6"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 11l2 2 4-4"/></symbol>
+  <symbol id="ic-vendor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13l1.5 1.5L13 12"/></symbol>
+  <symbol id="ic-incident" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/></symbol>
+  <symbol id="ic-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5-5L5 21"/></symbol>
+  <symbol id="ic-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></symbol>
+  <symbol id="ic-x" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.5 3h3l-7 8 8.2 10h-6.4l-5-6.2L8 21H5l7.5-8.6L4.6 3H11l4.5 5.6z"/></symbol>
+  <symbol id="ic-facebook" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M14 8.5V7c0-.8.5-1 1-1h2V3h-3c-2.2 0-4 1.8-4 4v1.5H8V12h2v9h3.5v-9H16l.5-3.5z"/></symbol>
+  <symbol id="ic-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7.2v.01M11 17v-4a2 2 0 0 1 4 0v4M11 17v-7"/></symbol>
+  <symbol id="ic-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 6.5v.01"/></symbol>
+  <symbol id="ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+</svg>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <a href="index.html"><img class="logo" src="img/logo.png" alt="Jurix"/></a>
+  <div class="links">
+    <a href="index.html">Home</a>
+    <a href="Consumers.html">For Consumers</a>
+    <a href="Lawyers.html">For Lawyers</a>
+    <a href="The Ecosystem.html">The Ecosystem</a>
+    <a href="About.html">About</a>
+    <a href="Leadership.html">Leadership</a>
+    <a href="Careers.html">Careers</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+  <a href="#" class="signin">Sign In <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+  <button class="burger" type="button" aria-label="Menu"><svg viewBox="0 0 24 24"><use href="#ic-menu"/></svg></button>
+</nav>
+<div class="mmenu">
+  <a href="index.html">Home</a><a href="Consumers.html">For Consumers</a><a href="Lawyers.html">For Lawyers</a>
+  <a href="The Ecosystem.html">The Ecosystem</a><a href="About.html">About</a><a href="Leadership.html">Leadership</a><a href="Careers.html">Careers</a><a href="Contact.html">Contact</a>
+</div>
+
+<main data-screen-label="Trust & Security">
+
+<!-- ===== HERO ===== -->
+<section class="t-hero">
+  <div class="container t-hero-grid">
+    <div class="copy reveal">
+      <h1>Built for <em>Legal Trust.</em></h1>
+      <p class="lede">Verified professionals, encrypted infrastructure, audit-grade workflows, and India-first data residency.</p>
+      <div class="hero-cta">
+        <a href="Jurix Plans.html" class="btn btn-gold">Try Pro Free for 14 Days <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+        <a href="Jurix Plans.html#compare" class="btn btn-cream">Compare Plans <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+      </div>
+    </div>
+    <div class="t-hero-art reveal" style="--i:1"><img src="img/trust-books.png" alt="Bound legal volumes on a shelf"/></div>
+  </div>
+</section>
+
+<!-- ===== PILLARS ===== -->
+<section class="pillars">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">Security Pillars</span><h2>Four layers of <em>protection.</em></h2></div>
+    <div class="pillar-grid" data-stagger>
+      <div class="pcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-verified"/></svg></span><h3>Verified Identity</h3><div class="rule"></div><p>KYC and bar council verification for listed lawyers.</p></div>
+      <div class="pcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-lock"/></svg></span><h3>Encrypted Comms</h3><div class="rule"></div><p>Encryption in transit and at rest for messages and files.</p></div>
+      <div class="pcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-key"/></svg></span><h3>Role-Based Access</h3><div class="rule"></div><p>Granular permissions across roles &amp; cases.</p></div>
+      <div class="pcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-doc"/></svg></span><h3>Audit Trails</h3><div class="rule"></div><p>Tamper-evident logs for every action.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CERTIFICATIONS ===== -->
+<section class="certs">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">Security Frameworks</span><h2><em>Standards</em> we build to.</h2></div>
+    <p class="sub reveal">We align our security, privacy and operational practices to recognised global frameworks. Formal certifications are being pursued in phases — the badges below reflect the standards we are working towards, not audits already completed.</p>
+    <div class="cert-grid reveal" data-stagger>
+      <div class="cert"><span class="ic"><svg viewBox="0 0 24 24"><use href="#ic-ribbon"/></svg></span><span>ISO 27001</span></div>
+      <div class="cert"><span class="ic"><svg viewBox="0 0 24 24"><use href="#ic-shieldcheck"/></svg></span><span>SOC 2 Type II</span></div>
+      <div class="cert"><span class="ic"><svg viewBox="0 0 24 24"><use href="#ic-folderlock"/></svg></span><span>DPDP Act (India)</span></div>
+      <div class="cert"><span class="ic"><svg viewBox="0 0 24 24"><use href="#ic-globe"/></svg></span><span>GDPR Aligned</span></div>
+      <div class="cert"><span class="ic"><svg viewBox="0 0 24 24"><use href="#ic-card"/></svg></span><span>PCI DSS</span></div>
+      <div class="cert"><span class="ic"><svg viewBox="0 0 24 24"><use href="#ic-server"/></svg></span><span>CERT-In Guidelines</span></div>
+    </div>
+    <p class="sub reveal" style="margin-top:22px;font-size:13px;opacity:.8">Status: certification programmes in progress. We will publish issued certificates here once available. Until then, please treat these as the frameworks our controls are designed around.</p>
+  </div>
+</section>
+
+<!-- ===== PRACTICES ===== -->
+<section class="practices">
+  <div class="container prac-grid">
+    <div class="intro reveal">
+      <span class="eyebrow">What we do</span>
+      <h2>Security practices, in detail.</h2>
+      <p>Verified professionals, encrypted infrastructure and audit-grade workflows keep your information protected at every step.</p>
+    </div>
+    <div class="prac-list reveal" style="--i:1" data-stagger>
+      <div class="pracard"><span class="ic"><svg viewBox="0 0 24 24"><use href="#ic-residency"/></svg></span><div><h4>Data residency in India</h4><p>Customer data stored in Indian data centers.</p></div></div>
+      <div class="pracard"><span class="ic"><svg viewBox="0 0 24 24"><use href="#ic-encrypt"/></svg></span><div><h4>Encryption at rest &amp; in transit</h4><p>AES-256 / TLS 1.3.</p></div></div>
+      <div class="pracard"><span class="ic"><svg viewBox="0 0 24 24"><use href="#ic-2fa"/></svg></span><div><h4>Two-factor authentication</h4><p>For all lawyer &amp; admin accounts.</p></div></div>
+      <div class="pracard"><span class="ic"><svg viewBox="0 0 24 24"><use href="#ic-monitor"/></svg></span><div><h4>Continuous monitoring</h4><p>24/7 security operations.</p></div></div>
+      <div class="pracard"><span class="ic"><svg viewBox="0 0 24 24"><use href="#ic-pentest"/></svg></span><div><h4>Penetration testing</h4><p>Quarterly third-party tests.</p></div></div>
+      <div class="pracard"><span class="ic"><svg viewBox="0 0 24 24"><use href="#ic-bgcheck"/></svg></span><div><h4>Background-verified team</h4><p>All employees go through BG checks.</p></div></div>
+      <div class="pracard"><span class="ic"><svg viewBox="0 0 24 24"><use href="#ic-vendor"/></svg></span><div><h4>Vendor due diligence</h4><p>All sub-processors evaluated.</p></div></div>
+      <div class="pracard"><span class="ic"><svg viewBox="0 0 24 24"><use href="#ic-incident"/></svg></span><div><h4>Incident response plan</h4><p>Documented runbooks &amp; drills.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESPONSIBLE DISCLOSURE ===== -->
+<section class="disclosure">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">Responsible Disclosure</span></div>
+    <h2 class="reveal" style="--i:1">Found a security issue?</h2>
+    <p class="reveal" style="--i:2">Email <a href="mailto:security@jurix.in">security@jurix.in</a>. We acknowledge within 24 hours and credit researchers publicly.</p>
+    <div class="cta-actions reveal" style="--i:3">
+      <a href="mailto:security@jurix.in" class="btn btn-dark">Report a Vulnerability <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="top">
+      <div class="brand">
+        <img class="logo" src="img/logo.png" alt="Jurix"/>
+        <p>Legal access, reimagined. Built for consumers and legal professionals.</p>
+        <div class="stores">
+          <a href="https://apps.apple.com/in/app/jurix/id6759278150" class="store-badge" target="_blank" rel="noopener noreferrer"><img src="img/appstore.svg" alt="Download on the App Store"/></a>
+          <a href="https://play.google.com/store/apps/details?id=com.jurix.jurix_mobile" class="store-badge" target="_blank" rel="noopener noreferrer"><img src="img/googleplay.svg" alt="Get it on Google Play"/></a>
+        </div>
+        <div class="social" style="margin-top:18px">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><use href="#ic-linkedin"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><use href="#ic-x"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><use href="#ic-facebook"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><use href="#ic-instagram"/></svg></a>
+        </div>
+      </div>
+      <div><h6>Platform</h6><ul><li><a href="Consumers.html">For Consumers</a></li><li><a href="Lawyers.html">For Lawyers</a></li><li><a href="The Ecosystem.html">The Ecosystem</a></li><li><a href="Jurix Plans.html">Plans</a></li></ul></div>
+      <div><h6>Company</h6><ul><li><a href="About.html">About</a></li><li><a href="Careers.html">Careers</a></li><li><a href="Contact.html">Contact</a></li></ul></div>
+      <div><h6>Support</h6><ul><li><a href="FAQ.html">FAQs</a></li><li><a href="Trust &amp; Security.html">Trust &amp; Security</a></li></ul></div>
+      <div><h6>Legal</h6><ul><li><a href="Privacy Policy.html">Privacy Policy</a></li><li><a href="Terms of Use.html">Terms of Use</a></li><li><a href="Cookies.html">Cookies</a></li><li><a href="Refund Policy.html">Refund Policy</a></li><li><a href="Compliance.html">Compliance</a></li></ul></div>
+    </div>
+    <div class="rule"></div>
+    <div class="foot-legal">
+      <p><strong>Disclaimer:</strong> JuriX is a technology platform operated by JuriX Legal Technologies Pvt. Ltd. JuriX is not a law firm, does not provide legal advice or representation, and does not guarantee any outcome. All legal services are provided by independent, verified advocates who are solely responsible for the advice and services they give, and advocate fees are set and collected by the advocate directly. JuriX operates a passive, verified advocate directory and a technology facilitation layer; it does not solicit, rank, rate, recommend or assign advocates. By accessing this website you acknowledge that there has been no advertisement, solicitation or inducement of any kind to engage any advocate; nothing here creates a lawyer–client relationship. Security certifications referenced on this page are in progress unless a current certificate is published.</p>
+      <p>Grievance Officer: <a href="mailto:grievance@jurix.in">grievance@jurix.in</a> &middot; Security: <a href="mailto:security@jurix.in">security@jurix.in</a> &middot; Complaints are acknowledged within 24 hours and resolved within 15 days.</p>
+    </div>
+    <div class="rule"></div>
+    <div class="bottom">
+      <span>© 2026 Jurix Legal Technologies Pvt. Ltd. &middot; CIN: [to be added] &middot; Reg. office: [to be added] &middot; GSTIN: [to be added]</span>
+      <span class="langs">India · English · हिन्दी · తెలుగు</span>
+    </div>
+  </div>
+</footer>
+
+<script src="home.js"></script>
+  <script src="cookie-consent.js"></script>
+</body>
+</html>

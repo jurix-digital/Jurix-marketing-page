@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Jurix — Legal help without the confusion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="home.css"/>
+<link rel="stylesheet" href="consumers.css"/>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#F0E5D0"/><text x="50" y="62" font-family="Playfair Display,serif" font-size="40" font-style="italic" fill="#8D621A" text-anchor="middle">Jx</text></svg>
+</template>
+
+<!-- ===== ICON SPRITE ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 6l6 6-6 6"/></symbol>
+  <symbol id="ic-arrowur" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+  <symbol id="ic-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></symbol>
+  <symbol id="ic-bank" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5"/><path d="M4 9h16"/><path d="M5 9v9M9 9v9M15 9v9M19 9v9"/><path d="M3 20h18"/></symbol>
+  <symbol id="ic-help" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/><path d="M9.1 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol>
+  <symbol id="ic-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 18v-6M9.5 14.5L12 12l2.5 2.5"/></symbol>
+  <symbol id="ic-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12.5" rx="2"/><path d="M8 7.5V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1.5"/><path d="M3 13h18"/></symbol>
+  <symbol id="ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h3l1.5 4-2 1.5a12 12 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 4.5 5.5a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="ic-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v16a2 2 0 0 0 2 2h14"/><path d="M9 14l3-4 3 2 4-6"/></symbol>
+  <symbol id="ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5A2 2 0 0 1 7 3h12v15H7a2 2 0 0 0-2 2z"/><path d="M19 18v3H7a2 2 0 0 1-2-2"/></symbol>
+  <symbol id="ic-siren" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19v-6a6 6 0 0 1 12 0v6"/><path d="M4 19h16"/><path d="M12 3v2M19.5 6L18 7.5M4.5 6L6 7.5"/></symbol>
+  <symbol id="ic-star-line" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.5 5.1 5.6.8-4 3.9 1 5.6L12 16.3 6.4 18.9l1-5.6-4-3.9 5.6-.8z"/></symbol>
+  <symbol id="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.3A8 8 0 1 1 21 11.5z"/></symbol>
+  <symbol id="ic-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="ic-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 9.5h16M8 3v4M16 3v4"/></symbol>
+  <symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+  <symbol id="ic-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-6h4v6"/></symbol>
+  <symbol id="ic-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16"/><path d="M14 9h4a2 2 0 0 1 2 2v10"/><path d="M8 7h2M8 11h2M8 15h2"/></symbol>
+  <symbol id="ic-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></symbol>
+  <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="ic-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10"/><path d="M6 7l-3 6a3 3 0 0 0 6 0L6 7zM6 7l6-1M18 7l3 6a3 3 0 0 1-6 0l3-6zM18 7l-6-1"/></symbol>
+  <symbol id="ic-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></symbol>
+  <symbol id="ic-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2.2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="ic-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="16" rx="2"/><path d="M9 5V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="M9 11h6M9 15h4"/></symbol>
+  <symbol id="ic-ai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 3.2a.53.53 0 0 1 1 0l1.5 5.05a2 2 0 0 0 1.32 1.32l5.05 1.5a.53.53 0 0 1 0 1l-5.05 1.5a2 2 0 0 0-1.32 1.32l-1.5 5.05a.53.53 0 0 1-1 0l-1.5-5.05a2 2 0 0 0-1.32-1.32l-5.05-1.5a.53.53 0 0 1 0-1l5.05-1.5a2 2 0 0 0 1.32-1.32z"/><path d="M19 4v3M20.5 5.5h-3"/></symbol>
+  <symbol id="ic-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13h5l-1 8 8-10h-5z"/></symbol>
+  <symbol id="ic-rupee" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12M6 8h12M6 13l8.5 8M6 13h3M9 13c6.667 0 6.667-10 0-10"/></symbol>
+  <symbol id="ic-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v11M7.5 10l4.5 4.5L16.5 10M5 20.5h14"/></symbol>
+  <symbol id="ic-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5-5L5 21"/></symbol>
+  <symbol id="ic-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></symbol>
+  <symbol id="ic-x" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.5 3h3l-7 8 8.2 10h-6.4l-5-6.2L8 21H5l7.5-8.6L4.6 3H11l4.5 5.6z"/></symbol>
+  <symbol id="ic-facebook" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M14 8.5V7c0-.8.5-1 1-1h2V3h-3c-2.2 0-4 1.8-4 4v1.5H8V12h2v9h3.5v-9H16l.5-3.5z"/></symbol>
+  <symbol id="ic-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7.2v.01M11 17v-4a2 2 0 0 1 4 0v4M11 17v-7"/></symbol>
+  <symbol id="ic-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 6.5v.01"/></symbol>
+  <symbol id="ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+</svg>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <a href="index.html"><img class="logo" src="img/logo.png" alt="Jurix"/></a>
+  <div class="links">
+    <a href="index.html">Home</a>
+    <a href="Consumers.html" class="active">For Consumers</a>
+    <a href="Lawyers.html">For Lawyers</a>
+    <a href="The Ecosystem.html">The Ecosystem</a>
+    <a href="About.html">About</a>
+    <a href="Leadership.html">Leadership</a>
+    <a href="Careers.html">Careers</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+  <a href="#" class="signin">Sign In <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+  <button class="burger" type="button" aria-label="Menu"><svg viewBox="0 0 24 24"><use href="#ic-menu"/></svg></button>
+</nav>
+<div class="mmenu">
+  <a href="index.html">Home</a><a href="Consumers.html">For Consumers</a><a href="Lawyers.html">For Lawyers</a>
+  <a href="The Ecosystem.html">The Ecosystem</a><a href="About.html">About</a><a href="Leadership.html">Leadership</a><a href="Careers.html">Careers</a><a href="Contact.html">Contact</a>
+</div>
+
+<main data-screen-label="Consumers">
+
+<!-- ===== HERO ===== -->
+<section class="c-hero">
+  <div class="container c-hero-grid">
+    <div class="copy reveal">
+      <h1>Legal help<br/>without the<br/><em>confusion.</em></h1>
+      <p class="lede">Connect with verified advocates, ask legal questions, upload documents, track cases, and manage your legal journey seamlessly with Jurix.</p>
+      <a href="#" class="btn btn-gold">Download App <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+    </div>
+    <div class="c-hero-art reveal" style="--i:1"><img src="img/consumer-hero.png" alt="Jurix consumer app"/></div>
+  </div>
+</section>
+
+<!-- ===== FEATURES (9 cards) ===== -->
+<section class="cfeatures">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">Why it&rsquo;s different</span><h2 class="h-serif">Everything you need in <em>one app.</em></h2></div>
+    <div class="fgrid" data-stagger>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-bank"/></svg></span><h4>Find Verified Advocates</h4><p>Browse trusted professionals by specialization, location &amp; experience.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-help"/></svg></span><h4>Ask Legal Questions</h4><p>Use AI to understand legal processes &amp; next steps — general information, not legal advice.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-upload"/></svg></span><h4>Upload &amp; Organize Docs</h4><p>Keep all case-related documents secure and organized in one place.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-briefcase"/></svg></span><h4>File a Case</h4><p>Initiate legal workflows digitally with guided support.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-phone"/></svg></span><h4>Schedule Calls</h4><p>Book consultations and follow-ups seamlessly.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-chart"/></svg></span><h4>Track Case Progress</h4><p>Monitor updates, filings, hearings &amp; communication in real time.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-book"/></svg></span><h4>Free Templates</h4><p>Download ready-to-use legal templates and formats.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-siren"/></svg></span><h4>Priority Support</h4><p>Reach Jurix Care for fast help using the Jurix platform.</p></div>
+      <div class="fcard reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-star-line"/></svg></span><h4>Jurix Pro</h4><p>Premium platform tools, document workspace and priority platform support.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="csteps">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">How it works</span><h2 class="h-serif">From <em>&ldquo;I need a lawyer&rdquo;</em> to<br/>consultation booked in minutes.</h2></div>
+    <div class="cstep-row">
+      <div class="cstep reveal"><span class="dot"></span><span class="n">1</span><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-chat"/></svg></span><h4>Describe Issue</h4><p>Describe your legal issue in your own language.</p></div>
+      <div class="cstep reveal" style="--i:1"><span class="dot"></span><span class="n">2</span><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-briefcase"/></svg></span><h4>Pick a Service</h4><p>Browse by category or AI-recommended services.</p></div>
+      <div class="cstep reveal" style="--i:2"><span class="dot"></span><span class="n">3</span><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-badge"/></svg></span><h4>Choose an Advocate</h4><p>You select from verified profiles by area of practice &amp; availability.</p></div>
+      <div class="cstep reveal" style="--i:3"><span class="dot"></span><span class="n">4</span><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-calendar"/></svg></span><h4>Book</h4><p>Pick a slot and request a consultation; advocate fees are agreed directly with your advocate.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LEGAL SERVICES DIRECTORY ===== -->
+<section class="market">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">Legal services directory</span><h2 class="h-serif">Pick what <em>fits your</em> situation.</h2></div>
+    <p class="sub reveal">Eight practice areas. Each with verified specialists, templates and how-to guides.</p>
+    <div class="market-grid">
+      <div class="cat-list reveal">
+        <button class="cat active" data-cat="personal"><span class="ci"><svg viewBox="0 0 24 24"><use href="#ic-heart"/></svg></span>Personal &amp; family<svg class="ar" viewBox="0 0 24 24"><use href="#ic-arrowur"/></svg></button>
+        <button class="cat" data-cat="property"><span class="ci"><svg viewBox="0 0 24 24"><use href="#ic-home"/></svg></span>Property &amp; rental<svg class="ar" viewBox="0 0 24 24"><use href="#ic-arrowur"/></svg></button>
+        <button class="cat" data-cat="business"><span class="ci"><svg viewBox="0 0 24 24"><use href="#ic-building"/></svg></span>Business &amp; corporate<svg class="ar" viewBox="0 0 24 24"><use href="#ic-arrowur"/></svg></button>
+        <button class="cat" data-cat="consumer"><span class="ci"><svg viewBox="0 0 24 24"><use href="#ic-globe"/></svg></span>Consumer &amp; cyber<svg class="ar" viewBox="0 0 24 24"><use href="#ic-arrowur"/></svg></button>
+        <button class="cat" data-cat="criminal"><span class="ci"><svg viewBox="0 0 24 24"><use href="#ic-shield"/></svg></span>Criminal<svg class="ar" viewBox="0 0 24 24"><use href="#ic-arrowur"/></svg></button>
+        <button class="cat" data-cat="civil"><span class="ci"><svg viewBox="0 0 24 24"><use href="#ic-scale"/></svg></span>Civil<svg class="ar" viewBox="0 0 24 24"><use href="#ic-arrowur"/></svg></button>
+        <button class="cat" data-cat="ip"><span class="ci"><svg viewBox="0 0 24 24"><use href="#ic-badge"/></svg></span>IP &amp; trademarks<svg class="ar" viewBox="0 0 24 24"><use href="#ic-arrowur"/></svg></button>
+        <button class="cat" data-cat="docs"><span class="ci"><svg viewBox="0 0 24 24"><use href="#ic-file"/></svg></span>Documentation<svg class="ar" viewBox="0 0 24 24"><use href="#ic-arrowur"/></svg></button>
+      </div>
+      <div class="panels reveal" style="--i:1">
+        <div class="panel" data-panel="personal">
+          <span class="ptile"><svg viewBox="0 0 24 24"><use href="#ic-heart"/></svg></span>
+          <h3>Personal &amp; family</h3><div class="prule"></div>
+          <ul class="slist">
+            <li><span class="pl">+</span>Marriage</li><li><span class="pl">+</span>Child Custody</li>
+            <li><span class="pl">+</span>Divorce</li><li><span class="pl">+</span>Adoption</li>
+            <li><span class="pl">+</span>Succession &amp; Inheritance</li><li><span class="pl">+</span>Domestic Violence</li>
+            <li><span class="pl">+</span>Wills &amp; Estate Planning</li><li><span class="pl">+</span>Maintenance &amp; Alimony</li>
+            <li><span class="pl">+</span>Elder Care &amp; Senior Rights</li><li><span class="pl">+</span>Family Disputes</li>
+            <li><span class="pl">+</span>Guardianship</li><li><span class="pl">+</span>Legal Documentation</li>
+            <li><span class="pl">+</span>Inheritance</li><li><span class="pl">+</span>Surrogacy &amp; Reproductive Rights</li>
+          </ul>
+        </div>
+        <div class="panel" data-panel="property" hidden>
+          <span class="ptile"><svg viewBox="0 0 24 24"><use href="#ic-home"/></svg></span>
+          <h3>Property &amp; rental</h3><div class="prule"></div>
+          <ul class="slist">
+            <li><span class="pl">+</span>Rental Agreements</li><li><span class="pl">+</span>Tenant Eviction</li>
+            <li><span class="pl">+</span>Lease Disputes</li><li><span class="pl">+</span>Land Disputes</li>
+            <li><span class="pl">+</span>Property Registration</li><li><span class="pl">+</span>RERA Complaints</li>
+            <li><span class="pl">+</span>Title Verification</li><li><span class="pl">+</span>Builder Disputes</li>
+            <li><span class="pl">+</span>Sale &amp; Gift Deeds</li><li><span class="pl">+</span>Mortgage &amp; Loans</li>
+            <li><span class="pl">+</span>Property Tax</li><li><span class="pl">+</span>Society &amp; RWA Matters</li>
+          </ul>
+        </div>
+        <div class="panel" data-panel="business" hidden>
+          <span class="ptile"><svg viewBox="0 0 24 24"><use href="#ic-building"/></svg></span>
+          <h3>Business &amp; corporate</h3><div class="prule"></div>
+          <ul class="slist">
+            <li><span class="pl">+</span>Company Registration</li><li><span class="pl">+</span>Mergers &amp; Acquisitions</li>
+            <li><span class="pl">+</span>Partnership Firms</li><li><span class="pl">+</span>Startup Advisory</li>
+            <li><span class="pl">+</span>Compliance &amp; Filings</li><li><span class="pl">+</span>Employment Policies</li>
+            <li><span class="pl">+</span>Contracts &amp; Agreements</li><li><span class="pl">+</span>Licensing &amp; Permits</li>
+            <li><span class="pl">+</span>Shareholder Disputes</li><li><span class="pl">+</span>GST &amp; Tax Matters</li>
+            <li><span class="pl">+</span>Corporate Governance</li><li><span class="pl">+</span>Winding Up</li>
+          </ul>
+        </div>
+        <div class="panel" data-panel="consumer" hidden>
+          <span class="ptile"><svg viewBox="0 0 24 24"><use href="#ic-globe"/></svg></span>
+          <h3>Consumer &amp; cyber</h3><div class="prule"></div>
+          <ul class="slist">
+            <li><span class="pl">+</span>Consumer Complaints</li><li><span class="pl">+</span>Cyber Fraud</li>
+            <li><span class="pl">+</span>Defective Products</li><li><span class="pl">+</span>Data Privacy</li>
+            <li><span class="pl">+</span>Service Deficiency</li><li><span class="pl">+</span>Online Defamation</li>
+            <li><span class="pl">+</span>E-commerce Disputes</li><li><span class="pl">+</span>Identity Theft</li>
+            <li><span class="pl">+</span>Refund Disputes</li><li><span class="pl">+</span>Phishing &amp; Scams</li>
+            <li><span class="pl">+</span>Banking Fraud</li><li><span class="pl">+</span>Social Media Abuse</li>
+          </ul>
+        </div>
+        <div class="panel" data-panel="criminal" hidden>
+          <span class="ptile"><svg viewBox="0 0 24 24"><use href="#ic-shield"/></svg></span>
+          <h3>Criminal</h3><div class="prule"></div>
+          <ul class="slist">
+            <li><span class="pl">+</span>Bail Applications</li><li><span class="pl">+</span>Cheque Bounce</li>
+            <li><span class="pl">+</span>Anticipatory Bail</li><li><span class="pl">+</span>Cyber Crime</li>
+            <li><span class="pl">+</span>FIR Assistance</li><li><span class="pl">+</span>White-Collar Crime</li>
+            <li><span class="pl">+</span>Criminal Defence</li><li><span class="pl">+</span>Quashing Petitions</li>
+            <li><span class="pl">+</span>Appeals &amp; Revisions</li><li><span class="pl">+</span>Juvenile Matters</li>
+            <li><span class="pl">+</span>Domestic Violence</li><li><span class="pl">+</span>Victim Support</li>
+          </ul>
+        </div>
+        <div class="panel" data-panel="civil" hidden>
+          <span class="ptile"><svg viewBox="0 0 24 24"><use href="#ic-scale"/></svg></span>
+          <h3>Civil</h3><div class="prule"></div>
+          <ul class="slist">
+            <li><span class="pl">+</span>Civil Suits</li><li><span class="pl">+</span>Contract Breach</li>
+            <li><span class="pl">+</span>Property Disputes</li><li><span class="pl">+</span>Defamation</li>
+            <li><span class="pl">+</span>Money Recovery</li><li><span class="pl">+</span>Partition Suits</li>
+            <li><span class="pl">+</span>Injunctions</li><li><span class="pl">+</span>Tenancy Matters</li>
+            <li><span class="pl">+</span>Specific Performance</li><li><span class="pl">+</span>Arbitration</li>
+            <li><span class="pl">+</span>Consumer Cases</li><li><span class="pl">+</span>Appeals</li>
+          </ul>
+        </div>
+        <div class="panel" data-panel="ip" hidden>
+          <span class="ptile"><svg viewBox="0 0 24 24"><use href="#ic-badge"/></svg></span>
+          <h3>IP &amp; trademarks</h3><div class="prule"></div>
+          <ul class="slist">
+            <li><span class="pl">+</span>Trademark Registration</li><li><span class="pl">+</span>Infringement Action</li>
+            <li><span class="pl">+</span>Trademark Search</li><li><span class="pl">+</span>Brand Protection</li>
+            <li><span class="pl">+</span>Copyright</li><li><span class="pl">+</span>Trade Secrets</li>
+            <li><span class="pl">+</span>Patents</li><li><span class="pl">+</span>Domain Disputes</li>
+            <li><span class="pl">+</span>Design Registration</li><li><span class="pl">+</span>IP Assignment</li>
+            <li><span class="pl">+</span>IP Licensing</li><li><span class="pl">+</span>Renewals</li>
+          </ul>
+        </div>
+        <div class="panel" data-panel="docs" hidden>
+          <span class="ptile"><svg viewBox="0 0 24 24"><use href="#ic-file"/></svg></span>
+          <h3>Documentation</h3><div class="prule"></div>
+          <ul class="slist">
+            <li><span class="pl">+</span>Affidavits</li><li><span class="pl">+</span>Wills Drafting</li>
+            <li><span class="pl">+</span>Notarisation</li><li><span class="pl">+</span>Rent Agreements</li>
+            <li><span class="pl">+</span>Agreement Drafting</li><li><span class="pl">+</span>NDA Drafting</li>
+            <li><span class="pl">+</span>Power of Attorney</li><li><span class="pl">+</span>Deeds &amp; Declarations</li>
+            <li><span class="pl">+</span>Legal Notices</li><li><span class="pl">+</span>Certified Copies</li>
+            <li><span class="pl">+</span>e-Stamping</li><li><span class="pl">+</span>Document Review</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMMITMENTS ===== -->
+<section class="commit">
+  <div class="container commit-grid">
+    <div class="intro reveal">
+      <span class="eyebrow">What it is</span>
+      <h2 class="h-serif">Why <em>consumers</em><br/>choose Jurix.</h2>
+      <p>Six commitments we won&rsquo;t compromise on. They shape every decision, every screen, every line of policy.</p>
+    </div>
+    <div class="commit-list" data-stagger>
+      <div class="cm reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-badge"/></svg></span><div><h5>Simpler legal experiences</h5><p>Designed to reduce confusion and uncertainty.</p></div></div>
+      <div class="cm reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-bolt"/></svg></span><div><h5>Faster access to legal help</h5><p>Find the right legal expert and get connected, without delays.</p></div></div>
+      <div class="cm reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-lock"/></svg></span><div><h5>Secure communication</h5><p>Protected messaging and document sharing, encrypted in transit and at rest.</p></div></div>
+      <div class="cm reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-clipboard"/></svg></span><div><h5>Transparent workflows</h5><p>Stay informed at every stage — no opaque emails, no missed updates.</p></div></div>
+      <div class="cm reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-ai"/></svg></span><div><h5>Human + AI support</h5><p>Helpful information through the platform, backed by verified advocates.</p></div></div>
+      <div class="cm reveal"><span class="tile"><svg viewBox="0 0 24 24"><use href="#ic-rupee"/></svg></span><div><h5>Pricing up-front</h5><p>Clear, up-front pricing for Jurix platform services such as tools and subscriptions. Advocate fees are set and disclosed by your advocate.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APP COMPANION ===== -->
+<section class="appsec">
+  <div class="container app-grid">
+    <div class="app-copy reveal">
+      <h2>Your legal companion,<br/><em>in your pocket.</em></h2>
+      <p>iOS &amp; Android apps. Sign in once, manage everything — services, cases and messages — across every device.</p>
+      <div class="app-badges">
+        <a href="https://apps.apple.com/in/app/jurix/id6759278150" class="store-badge"><img src="img/appstore.svg" alt="Download on the App Store"/></a>
+        <a href="https://play.google.com/store/apps/details?id=com.jurix.jurix_mobile" class="store-badge"><img src="img/googleplay.svg" alt="Get it on Google Play"/></a>
+      </div>
+    </div>
+    <div class="app-art reveal" style="--i:1"><img src="img/consumer-app.png" alt="Jurix mobile app"/></div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">FAQ&rsquo;s</span><h2 class="h-serif">Questions <em>consumers ask.</em></h2></div>
+    <div class="faq-list reveal" style="--i:1">
+      <div class="faq-item open"><button class="faq-q" type="button">How are lawyers verified on Jurix?<span class="pm"></span></button><div class="faq-a"><p>Lawyers complete KYC and bar council verification before they can take cases on Jurix. We check identity, enrolment and areas of practice, so you connect with genuine, qualified professionals.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">How does pricing work on Jurix?<span class="pm"></span></button><div class="faq-a"><p>Jurix shows clear, up-front pricing for platform services such as document tools, templates and subscriptions before you commit — no surprise bills. Any professional fees for legal work are agreed directly with your advocate.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Are my conversations and documents private?<span class="pm"></span></button><div class="faq-a"><p>Yes. Messaging and document sharing are encrypted in transit and at rest, and your files are stored securely with India-first data residency. Only you and the people you authorise can access your case.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">What if I&rsquo;m not satisfied with my advocate?<span class="pm"></span></button><div class="faq-a"><p>You can choose a different advocate from the verified directory or raise a concern with Jurix Care at any point. Our team helps you find another verified specialist and keeps your case history intact. Jurix does not assign advocates — the choice is always yours.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">How do I track my case progress?<span class="pm"></span></button><div class="faq-a"><p>The Case Tracker shows every stage in real time — filings, hearings, documents, costs and lawyer communication — so you always know exactly where things stand.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Which languages does Jurix support?<span class="pm"></span></button><div class="faq-a"><p>Jurix supports English, हिन्दी and తెలుగు today, with more Indian languages rolling out — including voice-first access for those who prefer to speak rather than type.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="c-cta">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">A calmer way to get legal help</span></div>
+    <h2 class="reveal" style="--i:1">Get the legal support<br/><em>you need.</em></h2>
+    <a href="#" class="btn btn-dark reveal" style="--i:2">Download App <svg viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></a>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="top">
+      <div class="brand">
+        <img class="logo" src="img/logo.png" alt="Jurix"/>
+        <p>Legal access, reimagined. Built for consumers and legal professionals.</p>
+        <div class="stores">
+          <a href="https://apps.apple.com/in/app/jurix/id6759278150" class="store-badge" target="_blank" rel="noopener noreferrer"><img src="img/appstore.svg" alt="Download on the App Store"/></a>
+          <a href="https://play.google.com/store/apps/details?id=com.jurix.jurix_mobile" class="store-badge" target="_blank" rel="noopener noreferrer"><img src="img/googleplay.svg" alt="Get it on Google Play"/></a>
+        </div>
+        <div class="social" style="margin-top:18px">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><use href="#ic-linkedin"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><use href="#ic-x"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><use href="#ic-facebook"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><use href="#ic-instagram"/></svg></a>
+        </div>
+      </div>
+      <div><h6>Platform</h6><ul><li><a href="Consumers.html">For Consumers</a></li><li><a href="Lawyers.html">For Lawyers</a></li><li><a href="The Ecosystem.html">The Ecosystem</a></li><li><a href="Jurix Plans.html">Plans</a></li></ul></div>
+      <div><h6>Company</h6><ul><li><a href="About.html">About</a></li><li><a href="Careers.html">Careers</a></li><li><a href="Contact.html">Contact</a></li></ul></div>
+      <div><h6>Support</h6><ul><li><a href="FAQ.html">FAQs</a></li><li><a href="Trust &amp; Security.html">Trust &amp; Security</a></li></ul></div>
+      <div><h6>Legal</h6><ul><li><a href="Privacy Policy.html">Privacy Policy</a></li><li><a href="Terms of Use.html">Terms of Use</a></li><li><a href="Cookies.html">Cookies</a></li><li><a href="Refund Policy.html">Refund Policy</a></li><li><a href="Compliance.html">Compliance</a></li></ul></div>
+    </div>
+    <div class="rule"></div>
+    <div class="foot-legal">
+      <p><strong>Disclaimer:</strong> JuriX is a technology platform operated by JuriX Legal Technologies Pvt. Ltd. JuriX is not a law firm, does not provide legal advice or representation, and does not guarantee any outcome. All legal services are provided by independent, verified advocates who are solely responsible for the advice and services they give, and advocate fees are set and collected by the advocate directly. JuriX operates a passive, verified advocate directory and a technology facilitation layer; it does not solicit, rank, rate, recommend or assign advocates. By accessing this website you acknowledge that there has been no advertisement, solicitation or inducement of any kind to engage any advocate; nothing here creates a lawyer–client relationship. AI features provide general legal information, not legal advice, and are not a substitute for a qualified advocate.</p>
+      <p>Grievance Officer: <a href="mailto:grievance@jurix.in">grievance@jurix.in</a> &middot; Security: <a href="mailto:security@jurix.in">security@jurix.in</a> &middot; Complaints are acknowledged within 24 hours and resolved within 15 days.</p>
+    </div>
+    <div class="rule"></div>
+    <div class="bottom">
+      <span>© 2026 Jurix Legal Technologies Pvt. Ltd. &middot; CIN: [to be added] &middot; Reg. office: [to be added] &middot; GSTIN: [to be added]</span>
+      <span class="langs">India · English · हिन्दी · తెలుగు</span>
+    </div>
+  </div>
+</footer>
+
+<script src="home.js"></script>
+  <script src="cookie-consent.js"></script>
+</body>
+</html>

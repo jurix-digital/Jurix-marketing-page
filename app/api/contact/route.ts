@@ -1,49 +1,50 @@
 import { NextResponse } from 'next/server';
+import { TableClient, AzureNamedKeyCredential } from '@azure/data-tables';
 
 export async function POST(request: Request) {
   try {
-    const { fullName, phoneNumber, email, occupation, message } =
-      await request.json();
+    const { name, email, phone, category, subject, message } = await request.json();
 
-    const apiKey = process.env.BREVO_API_KEY || '';
-    if (!apiKey) {
-      throw new Error('BREVO_API_KEY is not configured');
+    // Azure Table Storage Configuration
+    const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+    const accountKey = process.env.AZURE_STORAGE_ACCOUNT_KEY;
+    const tableName = process.env.AZURE_CONTACT_TABLE_NAME || 'contacts';
+
+    if (!accountName || !accountKey) {
+      throw new Error('Azure Storage credentials are not configured');
     }
 
-    const emailData = {
-      sender: { 
-        name: 'Jurix', 
-        email:'hello@jurix.law' 
-      },
-      to: [{ 
-        email: 'hello@jurix.law', 
-        name: 'Jurix Inbox' 
-      }],
-      subject: 'Jurix – New Contact Form Submission',
-      htmlContent: `
-        <p><strong>Name:</strong> ${fullName}</p>
-        <p><strong>Phone:</strong> ${phoneNumber}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Occupation:</strong> ${occupation}</p>
-        <p><strong>Message:</strong><br/>${message || '—'}</p>
-      `,
+    // Create Table Service Client
+    const credential = new AzureNamedKeyCredential(accountName, accountKey);
+    const tableClient = new TableClient(
+      `https://${accountName}.table.core.windows.net`,
+      tableName,
+      credential
+    );
+
+    // Generate unique partition key and row key
+    const timestamp = new Date().toISOString();
+    const partitionKey = timestamp.substring(0, 7); // YYYY-MM for monthly partitioning
+    const rowKey = `${timestamp}_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+
+    // Create contact entity
+    const contactEntity = {
+      partitionKey,
+      rowKey,
+      name,
+      email,
+      phone,
+      category,
+      subject,
+      message,
+      submittedAt: timestamp,
+      status: 'new'
     };
 
-    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'api-key': apiKey,
-      },
-      body: JSON.stringify(emailData),
-    });
+    // Insert entity into Azure Table Storage
+    await tableClient.createEntity(contactEntity);
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(`Brevo API error: ${response.status} - ${JSON.stringify(errorData)}`);
-    }
-
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, message: 'Contact form submitted successfully' });
   } catch (error) {
     console.error('Contact form error:', error);
     return NextResponse.json({ 
