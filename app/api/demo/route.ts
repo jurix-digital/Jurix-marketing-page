@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { TableClient, AzureNamedKeyCredential } from '@azure/data-tables';
+import { buildDemoEmail, sendEmail, NOTIFY_TO } from '@/lib/email';
 
 export async function POST(request: Request) {
   try {
@@ -31,54 +32,85 @@ export async function POST(request: Request) {
       throw new Error('reCAPTCHA validation failed');
     }
 
-    // Azure Table Storage Configuration
-    // Demo requests are stored in the same table as contacts by default, but
-    // are distinguished by the `formType` field. Optionally override the table
-    // via AZURE_DEMO_TABLE_NAME.
-    const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
-    const accountKey = process.env.AZURE_STORAGE_ACCOUNT_KEY;
-    const tableName =
-      process.env.AZURE_DEMO_TABLE_NAME ||
-      process.env.AZURE_CONTACT_TABLE_NAME ||
-      'contacts';
+    const timestamp = new Date().toISOString();
 
-    if (!accountName || !accountKey) {
-      throw new Error('Azure Storage credentials are not configured');
+    // Persist to Azure Table Storage (non-fatal if it fails so we don't lose the lead).
+    // Demo requests share the contacts table by default but are tagged via `formType`.
+    let tableSaved = false;
+    try {
+      const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+      const accountKey = process.env.AZURE_STORAGE_ACCOUNT_KEY;
+      const tableName =
+        process.env.AZURE_DEMO_TABLE_NAME ||
+        process.env.AZURE_CONTACT_TABLE_NAME ||
+        'contacts';
+
+      if (!accountName || !accountKey) {
+        throw new Error('Azure Storage credentials are not configured');
+      }
+
+      const credential = new AzureNamedKeyCredential(accountName, accountKey);
+      const tableClient = new TableClient(
+        `https://${accountName}.table.core.windows.net`,
+        tableName,
+        credential
+      );
+
+      const partitionKey = timestamp.substring(0, 7); // YYYY-MM for monthly partitioning
+      const rowKey = `${timestamp}_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+
+      await tableClient.createEntity({
+        partitionKey,
+        rowKey,
+        formType: 'lawyer-demo',
+        name,
+        barCouncilNo,
+        email,
+        mobile,
+        city,
+        areaOfPractice,
+        preferredDateTime,
+        submittedAt: timestamp,
+        status: 'new',
+      });
+      tableSaved = true;
+    } catch (storageError) {
+      console.error('Demo form storage error:', storageError);
     }
 
-    // Create Table Service Client
-    const credential = new AzureNamedKeyCredential(accountName, accountKey);
-    const tableClient = new TableClient(
-      `https://${accountName}.table.core.windows.net`,
-      tableName,
-      credential
-    );
+    // Always notify the team by email
+    let emailSent = false;
+    try {
+      const { subject: emailSubject, html } = buildDemoEmail({
+        name,
+        barCouncilNo,
+        email,
+        mobile,
+        city,
+        areaOfPractice,
+        preferredDateTime,
+      });
+      await sendEmail({
+        to: NOTIFY_TO,
+        subject: emailSubject,
+        html,
+        replyTo: email ? { email, name } : undefined,
+      });
+      emailSent = true;
+    } catch (emailError) {
+      console.error('Demo form email error:', emailError);
+    }
 
-    // Generate unique partition key and row key
-    const timestamp = new Date().toISOString();
-    const partitionKey = timestamp.substring(0, 7); // YYYY-MM for monthly partitioning
-    const rowKey = `${timestamp}_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+    if (!tableSaved && !emailSent) {
+      throw new Error('Failed to record submission and send notification');
+    }
 
-    // Create lawyer demo entity (differentiated via formType)
-    const demoEntity = {
-      partitionKey,
-      rowKey,
-      formType: 'lawyer-demo',
-      name,
-      barCouncilNo,
-      email,
-      mobile,
-      city,
-      areaOfPractice,
-      preferredDateTime,
-      submittedAt: timestamp,
-      status: 'new',
-    };
-
-    // Insert entity into Azure Table Storage
-    await tableClient.createEntity(demoEntity);
-
-    return NextResponse.json({ ok: true, message: 'Demo request submitted successfully' });
+    return NextResponse.json({
+      ok: true,
+      message: 'Demo request submitted successfully',
+      tableSaved,
+      emailSent,
+    });
   } catch (error) {
     console.error('Demo form error:', error);
     return NextResponse.json(

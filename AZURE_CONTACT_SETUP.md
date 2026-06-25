@@ -55,7 +55,33 @@ AZURE_CONTACT_TABLE_NAME=contacts
 # If unset, demo requests are written to AZURE_CONTACT_TABLE_NAME and
 # distinguished by the `formType` field.
 # AZURE_DEMO_TABLE_NAME=contacts
+
+# reCAPTCHA (server-side verification for both forms)
+RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key
+
+# Email notifications (Brevo transactional API)
+# Both the Contact and "Book a demo" forms send a branded email on submit.
+BREVO_API_KEY=your_brevo_api_key
+# Optional overrides (defaults shown):
+# CONTACT_NOTIFY_TO=hello@jurix.law          # recipient of form notifications
+# EMAIL_FROM=hello@jurix.law                 # verified Brevo sender address
+# EMAIL_FROM_NAME=Jurix Website              # sender display name
+# EMAIL_LOGO_URL=https://www.jurix.law/img/logo.png  # logo shown in the email
 ```
+
+## Email Notifications
+
+Both forms send a branded HTML email (Jurix logo + styled template) on every
+submission:
+
+- **Contact form** (`POST /api/contact`) → emails `CONTACT_NOTIFY_TO` (default `hello@jurix.law`)
+- **Book a demo** (`POST /api/demo`) → emails `CONTACT_NOTIFY_TO` (default `hello@jurix.law`)
+
+The submitter's email is set as the `Reply-To`, so replying from the inbox goes
+straight back to them. Email and Azure Table storage are independent: if one
+fails the other still runs, so a misconfiguration won't silently drop a lead.
+Delivery uses Brevo's transactional API — make sure `EMAIL_FROM` is a verified
+sender/domain in your Brevo account.
 
 ## Contact Form Data Structure
 
