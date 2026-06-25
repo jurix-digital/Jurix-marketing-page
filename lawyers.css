@@ -89,6 +89,9 @@
 .fld input:focus,.fld .sel:focus-within{border-color:var(--gold-2);box-shadow:0 0 0 3px rgba(154,106,35,.12);}
 .fld .sel{display:flex;align-items:center;justify-content:space-between;cursor:pointer;color:#A89C86;}
 .fld .sel svg{width:16px;height:16px;color:var(--gold-2);}
+.fld select.sel{display:block;color:var(--ink);cursor:pointer;appearance:none;-webkit-appearance:none;-moz-appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239A6A23' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:40px;}
 .fld-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .formcard .submit{margin-top:8px;width:100%;height:52px;border:0;border-radius:999px;background:var(--ink-2);color:#fff;
   font-family:var(--sans);font-weight:600;font-size:15px;letter-spacing:-.02em;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:transform .2s,filter .2s;}

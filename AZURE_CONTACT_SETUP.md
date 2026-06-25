@@ -51,6 +51,10 @@ Add the following to your `.env.local` file:
 AZURE_STORAGE_ACCOUNT_NAME=your_storage_account_name
 AZURE_STORAGE_ACCOUNT_KEY=your_storage_account_key
 AZURE_CONTACT_TABLE_NAME=contacts
+# Optional: store Lawyer "Book a demo" requests in a separate table.
+# If unset, demo requests are written to AZURE_CONTACT_TABLE_NAME and
+# distinguished by the `formType` field.
+# AZURE_DEMO_TABLE_NAME=contacts
 ```
 
 ## Contact Form Data Structure
@@ -59,6 +63,7 @@ Each contact submission is stored as an entity in Azure Table Storage with the f
 
 - `partitionKey`: YYYY-MM (for monthly partitioning)
 - `rowKey`: Unique identifier (timestamp + random string)
+- `formType`: `contact` (distinguishes contact submissions from demo requests)
 - `name`: Contact's full name
 - `email`: Contact's email address
 - `phone`: Contact's phone number
@@ -68,9 +73,31 @@ Each contact submission is stored as an entity in Azure Table Storage with the f
 - `submittedAt`: ISO timestamp of submission
 - `status`: Status (default: 'new')
 
-## API Endpoint
+## Lawyer "Book a demo" Data Structure
 
-The contact form submits to: `POST /api/contact`
+The Lawyers page (`/Lawyers#demo`) demo form is reCAPTCHA-protected and writes to
+the same table by default (or `AZURE_DEMO_TABLE_NAME` if set), tagged so the two
+record types are easy to separate:
+
+- `partitionKey`: YYYY-MM
+- `rowKey`: Unique identifier (timestamp + random string)
+- `formType`: `lawyer-demo` (distinguishes demo requests from contact submissions)
+- `name`: Lawyer's full name
+- `barCouncilNo`: Bar Council registration number
+- `email`: Lawyer's email address
+- `mobile`: Lawyer's mobile number
+- `city`: Selected city
+- `areaOfPractice`: Selected area of practice
+- `preferredDateTime`: Preferred date & time for the demo
+- `submittedAt`: ISO timestamp of submission
+- `status`: Status (default: 'new')
+
+To list only one type, filter on `formType` (e.g. `formType eq 'lawyer-demo'`).
+
+## API Endpoints
+
+- The contact form submits to: `POST /api/contact`
+- The lawyer demo form submits to: `POST /api/demo`
 
 ## Viewing Contact Submissions
 
