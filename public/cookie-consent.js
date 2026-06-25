@@ -73,7 +73,7 @@
     if(document.getElementById("jcc-bar")) return;
     var bar=el("div","jcc-bar"); bar.id="jcc-bar";
     bar.appendChild(el("p", null,
-      "We use cookies to run Jurix, remember your preferences and understand usage. Essential cookies are always on. You can accept all, reject non-essential, or choose what to allow. See our <a href=\"Cookies.html\">Cookie Policy</a>."));
+      "We use cookies to run Jurix, remember your preferences and understand usage. Essential cookies are always on. You can accept all, reject non-essential, or choose what to allow. See our <a href=\"/Cookies\">Cookie Policy</a>."));
     var actions=el("div","jcc-actions");
     var prefBtn=el("button","jcc-btn ghost","Preferences");
     var rejBtn=el("button","jcc-btn ghost","Reject non-essential");
