@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Jurix">
+  <rect width="64" height="64" rx="14" fill="#1A1C1E"/>
+  <g fill="none" stroke="#E0B45F" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 18h8M37 18h8M19 18v9M45 18v9"/>
+    <path d="M19 30v6c0 7 5.8 10.6 13 14 7.2-3.4 13-7 13-14v-6"/>
+    <path d="M32 26l4 6-4 6-4-6z"/>
+  </g>
+</svg>
